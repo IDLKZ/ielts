@@ -124,7 +124,7 @@ class AdvantageController extends AppBaseController
         }
         $input = $request->all();
         $input["img"] = FileUpload::updateFile($advantage->img,$request,"img","/uploads/advantages/",true,$request->title);
-        $advantage = $this->advantageRepository->update($request->all(), $id);
+        $advantage = $this->advantageRepository->update($input, $id);
 
         Flash::success(__("messages.updated"));
 

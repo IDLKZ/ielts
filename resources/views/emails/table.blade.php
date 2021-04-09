@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>Email</th>
-                <th colspan="3">Action</th>
+                <th colspan="3">{{__("admin.action")}}</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                         <a href="{{ route('emails.edit', [$email->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm(". __("admin.sure").")"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>

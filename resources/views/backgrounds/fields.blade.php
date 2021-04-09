@@ -20,5 +20,5 @@
 <div class="form-group col-sm-6">
     {!! Form::label('video_url', __('validation.attributes.video_url')) !!}
     <br>
-    {!! Form::file('video_url', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('video_url', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
 </div>

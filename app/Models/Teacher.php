@@ -82,6 +82,9 @@ class Teacher extends Model
     {
         return $this->belongsTo(\App\Models\Language::class, 'language_id');
     }
+    public function socialLink(){
+        return $this->hasMany(TeacherLink::class,"teacher_id","id");
+    }
     public function sluggable(): array
     {
         return [

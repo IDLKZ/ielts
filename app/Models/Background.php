@@ -62,7 +62,7 @@ class Background extends Model
         'language_id' => 'required',
         'title' => 'required|string|max:255',
         'subtitle' => 'nullable|string|max:255',
-        'video_url' => 'nullable|file|max:50000',
+        'video_url' => 'nullable|url|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

@@ -7,7 +7,6 @@
         <th>{{__("validation.attributes.img")}}</th>
         <th>{{__("validation.attributes.title")}}</th>
         <th>{{__("validation.attributes.subtitle")}}</th>
-        <th>{{__("validation.attributes.content")}}</th>
                 <th colspan="3">{{__("admin.action")}}</th>
             </tr>
         </thead>
@@ -19,7 +18,7 @@
             <td>  <img src="{{ $news->img }}" height="80"></td>
             <td>{{ $news->title }}</td>
             <td>{{ $news->subtitle }}</td>
-            <td>{!! $news->content !!} </td>
+                <td width="120">
                 <td width="120">
                     {!! Form::open(['route' => ['news.destroy', $news->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -16,10 +16,7 @@
             <td>{{ $background->title }}</td>
             <td>{{ $background->subtitle }}</td>
             <td>
-                <video width="240" height="180" controls>
-                    <source src="{{URL::asset($background->video_url)}}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                {{$background->video_url}}
             </td>
                 <td width="120">
                     {!! Form::open(['route' => ['backgrounds.destroy', $background->id], 'method' => 'delete']) !!}

@@ -4,7 +4,6 @@
             <tr>
                 <th>{{__("validation.attributes.language_id")}}</th>
         <th>{{__("validation.attributes.title")}}</th>
-        <th>{{__("validation.attributes.description")}}</th>
                 <th colspan="3">{{__("admin.action")}}</th>
             </tr>
         </thead>
@@ -13,7 +12,6 @@
             <tr>
                 <td>{{ $about->language->title }}</td>
             <td>{{ $about->title }}</td>
-            <td>{!! $about->description !!}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['abouts.destroy', $about->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -15,12 +15,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Email extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     use HasFactory;
 
     public $table = 'emails';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -49,10 +49,10 @@ class Email extends Model
      * @var array
      */
     public static $rules = [
-        'email' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
 
-    
+
 }

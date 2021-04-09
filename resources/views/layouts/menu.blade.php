@@ -1,4 +1,11 @@
 <li class="nav-item">
+    <a href="{{ route('headers.index') }}"
+       class="nav-link {{ Request::is('headers*') ? 'active' : '' }}">
+        <i class="fas fa-heading"></i>
+        <p>Заголовки(Title)</p>
+    </a>
+</li>
+<li class="nav-item">
     <a href="{{ route('backgrounds.index') }}"
        class="nav-link {{ Request::is('backgrounds*') ? 'active' : '' }}">
         <i class="fas fa-image"></i>
@@ -120,7 +127,40 @@
 <li class="nav-item">
     <a href="{{ route('emails.index') }}"
        class="nav-link {{ Request::is('emails*') ? 'active' : '' }}">
+        <i class="fas fa-envelope"></i>
         <p>Emails</p>
+    </a>
+</li>
+
+
+
+
+
+<li class="nav-item">
+    <a href="{{ route('seos.index') }}"
+       class="nav-link {{ Request::is('seos*') ? 'active' : '' }}">
+        <i class="fas fa-search"></i>
+        <p>SEO</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('logos.index') }}"
+       class="nav-link {{ Request::is('logos*') ? 'active' : '' }}">
+        <i class="fas fa-image"></i>
+        <p>Лого</p>
+    </a>
+</li>
+
+
+
+
+<li class="nav-item">
+    <a href="{{ route('footers.index') }}"
+       class="nav-link {{ Request::is('footers*') ? 'active' : '' }}">
+        <i class="fas fa-box"></i>
+        <p>Футер-Footer</p>
     </a>
 </li>
 

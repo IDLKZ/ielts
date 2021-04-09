@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Route;
 
@@ -29,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
             ->as('api.')
             ->namespace($this->app->getNamespace().'Http\Controllers\API')
             ->group(base_path('routes/api.php'));
+        Paginator::useBootstrap();
     }
 }

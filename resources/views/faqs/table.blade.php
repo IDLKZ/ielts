@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ $faq->language->title }}</td>
             <td>{{ $faq->question }}</td>
-            <td>{{ $faq->answer }}</td>
+            <td>{!! $faq->answer !!} </td>
                 <td width="120">
                     {!! Form::open(['route' => ['faqs.destroy', $faq->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

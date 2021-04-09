@@ -20,9 +20,6 @@
 <div class="col-sm-12">
     {!! Form::label('video_url', __("validation.attributes.video_url")) !!}
     <br>
-    <video width="320" height="240" controls>
-        <source src="{{URL::asset($background->video_url)}}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    {{$background->video_url}}
 </div>
 

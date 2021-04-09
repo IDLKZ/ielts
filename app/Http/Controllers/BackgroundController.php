@@ -56,7 +56,6 @@ class BackgroundController extends AppBaseController
     public function store(CreateBackgroundRequest $request)
     {
         $input = $request->all();
-        $input["video_url"] = FileUpload::createFile($request,"video_url","/uploads/video/",true,$request->title);
         $background = $this->backgroundRepository->create($input);
 
         Flash::success(__("messages.deleted"));
@@ -122,8 +121,6 @@ class BackgroundController extends AppBaseController
             return redirect(route('backgrounds.index'));
         }
         $input = $request->all();
-        $input["video_url"] = FileUpload::updateFile($background->video_url,$request,"video_url","/uploads/video/",true,$request->title);
-
         $background = $this->backgroundRepository->update($input, $id);
 
         Flash::success(__("messages.updated"));
@@ -149,7 +146,6 @@ class BackgroundController extends AppBaseController
 
             return redirect(route('backgrounds.index'));
         }
-        FileUpload::deleteFile($background->video_url);
         $this->backgroundRepository->delete($id);
 
         Flash::success(__("messages.deleted"));

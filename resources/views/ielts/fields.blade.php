@@ -10,7 +10,7 @@
 <!-- Language Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('language_id', __("validation.attributes.language_id")) !!}
-    {!! Form::select('language_id',\App\Models\Language::pluck('title') ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('language_id',\App\Models\Language::pluck('title',"id") ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Img Field -->

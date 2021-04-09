@@ -58,7 +58,7 @@ class EmailController extends AppBaseController
 
         $email = $this->emailRepository->create($input);
 
-        Flash::success('Email saved successfully.');
+        Flash::success(__("messages.created"));
 
         return redirect(route('emails.index'));
     }
@@ -75,7 +75,7 @@ class EmailController extends AppBaseController
         $email = $this->emailRepository->find($id);
 
         if (empty($email)) {
-            Flash::error('Email not found');
+            Flash::error(__("messages.404"));
 
             return redirect(route('emails.index'));
         }
@@ -95,7 +95,7 @@ class EmailController extends AppBaseController
         $email = $this->emailRepository->find($id);
 
         if (empty($email)) {
-            Flash::error('Email not found');
+            Flash::error(__("messages.404"));
 
             return redirect(route('emails.index'));
         }
@@ -116,14 +116,14 @@ class EmailController extends AppBaseController
         $email = $this->emailRepository->find($id);
 
         if (empty($email)) {
-            Flash::error('Email not found');
+            Flash::error(__("messages.404"));
 
             return redirect(route('emails.index'));
         }
 
         $email = $this->emailRepository->update($request->all(), $id);
 
-        Flash::success('Email updated successfully.');
+        Flash::success(__("messages.updated"));
 
         return redirect(route('emails.index'));
     }
@@ -142,14 +142,14 @@ class EmailController extends AppBaseController
         $email = $this->emailRepository->find($id);
 
         if (empty($email)) {
-            Flash::error('Email not found');
+            Flash::error(__("messages.404"));
 
             return redirect(route('emails.index'));
         }
 
         $this->emailRepository->delete($id);
 
-        Flash::success('Email deleted successfully.');
+        Flash::success(__("messages.deleted"));
 
         return redirect(route('emails.index'));
     }

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Email</h1>
+                    <h1>{{__("admin.edit")}}</h1>
                 </div>
             </div>
         </div>
@@ -26,8 +26,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('emails.index') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit(__("admin.edit"), ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('emails.index') }}" class="btn btn-default">{{__("admin.cancel")}}</a>
             </div>
 
            {!! Form::close() !!}

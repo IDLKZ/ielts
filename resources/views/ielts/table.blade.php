@@ -2,7 +2,6 @@
     <table class="table" id="ielts-table">
         <thead>
             <tr>
-                <th>{{__("validation.attributes.alias")}}</th>
         <th>{{__("validation.attributes.title")}}</th>
         <th>{{__("validation.attributes.language_id")}}</th>
         <th>{{__("validation.attributes.img")}}</th>
@@ -13,7 +12,7 @@
         <tbody>
         @foreach($ielts as $ielts)
             <tr>
-                <td>{{ $ielts->alias }}</td>
+
             <td>{{ $ielts->title }}</td>
             <td>{{ $ielts->language->title }}</td>
             <td>   <img src="{{ $ielts->img }}" height="80px"></td>

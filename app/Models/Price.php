@@ -55,7 +55,7 @@ class Price extends Model
         'title' => 'string',
         'price' => 'float',
         'currency' => 'string',
-        'benefits' => 'string',
+        'benefits' => 'array',
         'subtitle' => 'string'
     ];
 
