@@ -23,7 +23,6 @@
         "teacher"=>__("frontend.menu_teachers"),
         "gallery"=>__("frontend.menu_gallery"),
         "course"=>__("frontend.menu_course"),
-        "schedule"=>__("frontend.menu_schedule")
         ],
     null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
 </div>

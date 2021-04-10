@@ -133,6 +133,14 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('socials.index') }}"
+       class="nav-link {{ Request::is('socials*') ? 'active' : '' }}">
+        <i class="fab fa-facebook"></i>
+        <p>{{__("frontend.social")}}</p>
+    </a>
+</li>
+
 
 
 
@@ -161,6 +169,15 @@
        class="nav-link {{ Request::is('footers*') ? 'active' : '' }}">
         <i class="fas fa-box"></i>
         <p>Футер-Footer</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('logout') }}"
+       class="nav-link">
+        <i class="fas fa-power-off"></i>
+        <p>Выход</p>
     </a>
 </li>
 

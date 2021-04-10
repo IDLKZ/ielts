@@ -19,12 +19,21 @@
         <div class="container mh-400">
             <div class="row py-4">
                 <div class="col-md-12 text-center">
+                    @if($header)
+                        <h1 class="heading-1 blue-text">
+                            {{$header->title}}
+                        </h1>
+                        <p class="subheading-1">
+                            {{$header->subtitle}}
+                        </p>
+                    @else
                     <h1 class="heading-1 blue-text">
                         {{__("frontend.news_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.news_subtitle")}}
                     </p>
+                    @endif
                 </div>
             </div>
             <div class="row">

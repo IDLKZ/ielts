@@ -1,5 +1,7 @@
 $(document).ready(function(){
     if($(document).width() > 768){
+        // When the user clicks on the button, scroll to the top of the document
+
         navBar()
         $(window).on("scroll", function() {
             navBar();

@@ -20,6 +20,16 @@ class Data extends Model
         $data["prices"] = Price::where("language_id", Language::getLanguage())->get();
         $data["services"] = Service::count() >= 3 ? Service::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->take(3)->get() : Service::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->get();
         $data["news"] = News::count() >= 3 ? News::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->take(3)->get() : News::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->get();
+        $data["headers"]["main"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","main");
+        $data["headers"]["ielts"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","ielts");
+        $data["headers"]["about"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","about");
+        $data["headers"]["advantage"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","advantage");
+        $data["headers"]["review"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","review");
+        $data["headers"]["price"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","price");
+        $data["headers"]["service"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","service");
+        $data["headers"]["news"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","news");
+
+
         return $data;
 
     }

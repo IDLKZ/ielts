@@ -1,8 +1,13 @@
 <header class="nav-bar-container">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark my-navbar">
-            <a class="navbar-brand border-left px-2 fs-20 font-weight-bold logo" href="#">
+            <a class="navbar-brand border-left px-2 fs-20 font-weight-bold logo" href="/">
+                @if($logo)
+                    <img src="{{asset($logo->img)}}" height="40px">
+                @else
                 <img src="{{asset("/logo.png")}}" height="40px">
+                @endif
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

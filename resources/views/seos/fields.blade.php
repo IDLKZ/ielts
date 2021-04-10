@@ -18,7 +18,6 @@
           "faq"=>__("frontend.menu_fag"),
          "ielts"=>__("frontend.menu_ielts"),
          "course"=>__("frontend.menu_course"),
-        "schedule"=>__("frontend.menu_schedule"),
         "price"=>__("frontend.menu_price"),
         "news"=>__("validation.attributes.news_id"),
         "contact"=>__("frontend.menu_contact"),

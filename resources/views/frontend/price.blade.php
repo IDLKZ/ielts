@@ -19,12 +19,21 @@
         <div class="container mh-400">
             <div class="row py-4">
                 <div class="col-md-12 text-center">
+                    @if($header)
+                        <h1 class="heading-1 blue-text">
+                            {{$header->title}}
+                        </h1>
+                        <p class="subheading-1">
+                            {{$header->subtitle}}
+                        </p>
+                    @else
                     <h1 class="heading-1 blue-text">
                         {{__("frontend.price_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.price_subtitle")}}
                     </p>
+                    @endif
                 </div>
             </div>
             <div class="row my-4">
@@ -47,7 +56,7 @@
 
 
                             </ul>
-                            <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
+                            <a href="{{route("my-prices")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
                         </div>
                     </div>
                     <!-- END -->

@@ -8,20 +8,20 @@
         <div data-ytbg-play-button="true" data-youtube="{{$data["background"]->video_url}}"></div>
         <div class="video-content text-center">
             <div class="animate__flash">
-                <h1 class="video-title text-white" data-in-effect="rollIn">
+                <h1 class="video-title text-white" data-aos="fade-up">
                     {{$data["background"]->title}}
                 </h1>
                 <br>
-                <p class="video-subtitle text-white" data-in-effect="bounceIn">
+                <p class="video-subtitle text-white" data-aos="fade-up">
                     {{$data["background"]->subtitle}}
                 </p>
                 <div>
-                    <a  href="" class="btn bg-transparent btn-lg text-white border-white ml-2">
+                    <a data-aos="fade-left"  href="{{route("about")}}" class="btn bg-transparent btn-lg text-white border-white ml-2">
                         {{__("frontend.about_title")}}
                         <i class="fas fa-building"></i>
                     </a>
 
-                    <a  href="" class="btn bg-transparent btn-lg text-white border-white ml-2">
+                    <a data-aos="fade-left"  href="{{route("course")}}" class="btn bg-transparent btn-lg text-white border-white ml-2">
                         {{__("frontend.all_services")}}
                         <i class="fas fa-handshake"></i>
                     </a>
@@ -63,11 +63,23 @@
 
     </section>
 {{--Video End--}}
+
+
 {{--Second Slider--}}
 <section class="my-section py-5 d-flex align-items-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            @if($data["headers"]["ielts"])
+                <div class="col-md-12 text-center" data-aos="zoom-in-up">
+                    <h1 class="heading-1 blue-text">
+                       {{$data["headers"]["ielts"]["title"]}}
+                    </h1>
+                    <p class="subheading-1">
+                        {{$data["headers"]["ielts"]["subtitle"]}}
+                    </p>
+                </div>
+            @else
+            <div class="col-md-12 text-center" data-aos="zoom-in-up">
                 <h1 class="heading-1 blue-text">
                     {{__("frontend.ielts_title")}}
                 </h1>
@@ -75,17 +87,18 @@
                     {{__("frontend.ielts_subtitle")}}
                 </p>
             </div>
+            @endif
         </div>
         <div class="row py-2">
             @if($data["ielts"]->isNotEmpty())
                 @foreach($data["ielts"] as $ielts)
-                <div class="col-md-3 my-2">
+                <div class="col-md-3 my-2" data-aos="zoom-in-up">
                     <div class="card text-center py-2 border-0">
                         <div class="bg-mini-circle blue-bg d-flex align-self-center my-2 bg-content"
                         style="background-image: url('{{$ielts->img}}')"
                         ></div>
                         <p class="fs-20 font-weight-bold">{{$ielts->title}}</p>
-                        <a href="" class="btn my-btn my-btn-blue btn-sm fs-14">
+                        <a href="{{route("my-ielts")}}" class="btn my-btn my-btn-blue btn-sm fs-14">
                             {{__("frontend.info")}}
                             <i class="fas fa-info"></i>
                         </a>
@@ -96,7 +109,7 @@
 
             @else
             @for($i=0; $i<4; $i++)
-            <div class="col-md-3 my-2">
+            <div class="col-md-3 my-2" data-aos="zoom-in-up">
                 <div class="card text-center py-2 border-0">
                     <div class="bg-mini-circle blue-bg d-flex align-self-center my-2"></div>
                     <p class="fs-18 font-weight-bolder">Lorem Ipsum</p>
@@ -118,19 +131,29 @@
 
 </section>
 {{--End Second Slider--}}
+
 {{--    Third Second--}}
 <section>
     <div class="container-fluid my-section">
         <div class="row aqua-gradient">
             <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div class="px-md-2 py-2 text-center text-md-left px-md-4">
-                <h1 class="heading-1 text-white">
+                <div class="px-md-2 py-2 text-center text-md-left px-md-4"  data-aos="zoom-out-right">
+                @if($data["headers"]["about"])
+                        <h1 class="heading-1 text-white">
+                            {{$data["headers"]["about"]["title"]}}
+                        </h1>
+                        <p class="subheading-1 text-white">
+                            {{$data["headers"]["about"]["subtitle"]}}
+                        </p>
+                    @else
+                    <h1 class="heading-1 text-white">
                     {{__("frontend.about_title")}}
-                </h1>
-                <p class="subheading-1 text-white">
+                    </h1>
+                    <p class="subheading-1 text-white">
                     {{__("frontend.about_subtitle")}}
-                </p>
-
+                    </p>
+                    @endif
+                <br>
                 @if($data["about"])
                         <p class="subheading-1 text-white">
                            {{$data["about"]->title}}
@@ -145,13 +168,13 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut, consequuntur dolore exercitationem fugiat magni praesentium? Adipisci, aperiam cum debitis delectus ducimus enim magni minus pariatur, porro quod ratione temporibus.
                 </p>
                  @endif
-                <a href="" class="btn my-btn my-btn-blue my-btn-md">
+                <a href="{{route("about")}}" class="btn my-btn my-btn-blue my-btn-md">
                     {{__("frontend.about_title")}}
                     <i class="fas fa-users"></i>
                 </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="zoom-out-left">
                 <lottie-player src="{{asset("/lottie/about.json")}}" background="transparent"  speed="1"  style="width: 100%;" loop autoplay></lottie-player>
             </div>
 
@@ -163,19 +186,28 @@
 <section class="my-section">
     <div class="container py-5">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center" data-aos="zoom-in-up">
+                @if($data["headers"]["advantage"])
+                    <h1 class="heading-1 blue-text">
+                        {{$data["headers"]["advantage"]["title"]}}
+                    </h1>
+                    <p class="subheading-1">
+                        {{$data["headers"]["advantage"]["subtitle"]}}
+                    </p>
+                @else
                 <h1 class="heading-1 blue-text">
                     {{__("frontend.advantage_title")}}
                 </h1>
                 <p class="subheading-1">
                     {{__("frontend.advantage_subtitle")}}
                 </p>
+                @endif
             </div>
         </div>
         <div class="row py-2">
             @if($data["advantages"]->isNotEmpty())
                 @foreach($data["advantages"] as $advantage)
-                    <div class="col-md-4 my-2">
+                    <div class="col-md-4 my-2" data-aos="zoom-out">
                         <div class="card text-center py-2 border-0">
                             <div class="bg-mini-circle light-blue-bg2 d-flex align-self-center align-items-center justify-content-center my-2">
                                 <img src="{{$advantage->img}}" height="100px">
@@ -189,7 +221,7 @@
                 @endforeach
             @else
             @for($i=0; $i<6; $i++)
-                <div class="col-md-4 my-2">
+                <div class="col-md-4 my-2" data-aos="zoom-out">
                     <div class="card text-center py-2 border-0">
                         <div class="bg-mini-circle blue-bg d-md-flex align-self-center my-2"></div>
                         <p class="fs-18 font-weight-bolder">Lorem Ipsum</p>
@@ -209,13 +241,22 @@
     <section class="my-section atlas-gradient d-flex align-items-center">
         <div class="container">
             <div class="row py-4">
-                <div class="col-md-6 text-center text-white">
+                <div class="col-md-6 text-center text-white" data-aos="zoom-in-up">
+                    @if($data["headers"]["review"])
+                        <h1 class="heading-1">
+                           {{$data["headers"]["review"]["title"]}}
+                        </h1>
+                        <p class="subheading-1">
+                           {{$data["headers"]["review"]["subtitle"]}}
+                        </p>
+                    @else
                     <h1 class="heading-1">
                         {{__("frontend.comment_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.comment_subtitle")}}
                     </p>
+                    @endif
                     <lottie-player src="{{asset("/lottie/comments.json")}}" background="transparent"  speed="1"  style="height: 250px;" loop autoplay></lottie-player>
 
                 </div>
@@ -227,7 +268,7 @@
                                 @if($data["reviews"]->isNotEmpty())
                                 @foreach($data["reviews"] as $review)
                                     <!-- item -->
-                                        <div class="swiper-slide item">
+                                        <div class="swiper-slide item" data-aos="flip-up">
                                             <div class="card card-shadow border-0 mb-4">
                                                 <div class="card-body text-center">
                                                     <h6 class="font-weight-light mb-3">
@@ -257,7 +298,7 @@
                                 @else
                                 @for($i =0; $i<5; $i++)
                                 <!-- item -->
-                                <div class="swiper-slide item">
+                                <div class="swiper-slide item" data-aos="flip-up">
                                     <div class="card card-shadow border-0 mb-4">
                                         <div class="card-body text-center">
                                             <h6 class="font-weight-light mb-3">“Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras venene veliel vestibulum.”</h6>
@@ -294,20 +335,29 @@
     <section class="my-section py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center" data-aos="zoom-in">
+                    @if($data["headers"]["price"])
+                        <h1 class="heading-1 blue-text">
+                            {{$data["headers"]["price"]["title"]}}
+                        </h1>
+                        <p class="subheading-1">
+                            {{$data["headers"]["price"]["subtitle"]}}
+                        </p>
+                    @else
                     <h1 class="heading-1 blue-text">
                         {{__("frontend.price_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.price_subtitle")}}
                     </p>
+                    @endif
                 </div>
             </div>
             <div class="row">
                 @if($data["prices"]->isNotEmpty())
                 @foreach($data["prices"] as $price)
                     <!-- Pricing Table-->
-                        <div class="col-md-4 mb-5 mb-lg-0">
+                        <div class="col-md-4 mb-5 mb-lg-0" data-aos="zoom-in">
                             <div class="bg-white p-5 rounded-lg shadow">
                                 <h1 class="h2 text-uppercase font-weight-bold mb-4">{{$price->title}}</h1>
                                 <h2 class="h1 font-weight-bold">{{$price->price}} {{$price->currency}}<span class="text-small font-weight-normal ml-2">/ {{$price->subtitle}}</span></h2>
@@ -324,7 +374,7 @@
 
 
                                 </ul>
-                                <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
+                                <a href="{{route("my-prices")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
                             </div>
                         </div>
                         <!-- END -->
@@ -332,7 +382,7 @@
                 @else
                 @for($i = 0; $i<3; $i++)
                 <!-- Pricing Table-->
-                <div class="col-md-4 mb-5 mb-lg-0">
+                <div class="col-md-4 mb-5 mb-lg-0" data-aos="zoom-in">
                     <div class="bg-white p-5 rounded-lg shadow">
                         <h1 class="h2 text-uppercase font-weight-bold mb-4">Basic</h1>
                         <h2 class="h1 font-weight-bold">$199<span class="text-small font-weight-normal ml-2">/ month</span></h2>
@@ -354,7 +404,7 @@
                                 <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
 
                         </ul>
-                        <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
+                        <a href="{{route("my-prices")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
                     </div>
                 </div>
                 <!-- END -->
@@ -369,20 +419,29 @@
 <section class="my-section jupiter-gradient d-flex align-items-center">
     <div class="container">
         <div class="row my-4">
-            <div class="col-md-6 text-center text-white d-flex justify-content-center align-items-center">
+            <div class="col-md-6 text-center text-white d-flex justify-content-center align-items-center" data-aos="zoom-in-right">
                 <div>
+                    @if($data["headers"]["service"])
+                        <h1 class="heading-1">
+                            {{$data["headers"]["service"]["title"]}}
+                        </h1>
+                        <p class="subheading-1">
+                            {{$data["headers"]["service"]["subtitle"]}}
+                        </p>
+                    @else
                     <h1 class="heading-1">
                         {{__("frontend.product_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.product_subtitle")}}
                     </p>
+                    @endif
                     <lottie-player src="{{asset("/lottie/product.json")}}" background="transparent"  speed="1"  style="height: 250px;" loop autoplay></lottie-player>
 
                 </div>
 
             </div>
-            <div class="col-md-6 overflow-hidden">
+            <div class="col-md-6 overflow-hidden" data-aos="zoom-in-right">
                 <div class="testimonial3 py-5">
 
 
@@ -403,7 +462,7 @@
                                             <div class="text-center my-2">
                                                 <p class="fs-18 font-weight-bolder">{{$service->title}}</p>
                                                 <p>{{$service->subtitle}}</p>
-                                                <a href="" class="btn btn-md my-btn-blue my-btn text-uppercase fs-18 font-weight-bolder text-white">
+                                                <a href="{{route("courseSingle",$service->title)}}" class="btn btn-md my-btn-blue my-btn text-uppercase fs-18 font-weight-bolder text-white">
                                                     {{__("frontend.info")}}
                                                 </a>
                                             </div>
@@ -450,19 +509,29 @@
     <section class="my-section py-4">
         <div class="container">
             <div class="row py-4">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center" data-aos="zoom-in-up">
+                    @if($data["headers"]["news"])
+                        <h1 class="heading-1 blue-text">
+                            {{$data["headers"]["news"]["title"]}}
+                        </h1>
+                        <p class="subheading-1">
+                            {{$data["headers"]["news"]["subtitle"]}}
+                        </p>
+
+                    @else
                     <h1 class="heading-1 blue-text">
                         {{__("frontend.news_title")}}
                     </h1>
                     <p class="subheading-1">
                         {{__("frontend.news_subtitle")}}
                     </p>
+                    @endif
                 </div>
             </div>
             <div class="row py-4">
                 @if($data["news"]->isNotEmpty())
                     @foreach($data["news"] as $item)
-                        <div class="col-md-4 mt-4 mh-400">
+                        <div class="col-md-4 mt-4 mh-400" data-aos="zoom-in-up">
                             <div class="card profile-card-5">
                                 <div class="card-img-block">
                                     <img class="card-img-top"
@@ -473,14 +542,14 @@
                                     <p><i class="fas fa-clock"></i> {{$item->created_at->diffForHumans()}}   <i class="fas fa-user"></i>  Admin </p>
                                     <h6 class="font-weight-bolder blue-text">{{$item->title}}</h6>
                                     <p class="card-text">{{$item->subtitle}}</p>
-                                    <a href="#" class="btn light-blue-bg text-white">{{__("frontend.info")}}</a>
+                                    <a href="{{route("blogInfo",$item->alias)}}" class="btn light-blue-bg text-white">{{__("frontend.info")}}</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @else
                 @for($i=0;$i<3;$i++)
-                <div class="col-md-4 mt-4">
+                <div class="col-md-4 mt-4" data-aos="zoom-in-up">
                     <div class="card profile-card-5">
                         <div class="card-img-block">
                             <img class="card-img-top"
@@ -517,7 +586,7 @@
                           </h1>
                           <lottie-player src="{{asset("/lottie/contact-us.json")}}" background="transparent"  speed="1"  style="height: 250px;" loop autoplay></lottie-player>
                           <div class="text-center d-block">
-                              <a href="#" class="btn btn-primary btn-block p-2 shadow rounded-pill d-inline">{{__("frontend.our_contact")}} <i class="fab fa-telegram-plane mx-2"></i> </a>
+                              <a href="{{route("contact")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill d-inline">{{__("frontend.our_contact")}} <i class="fab fa-telegram-plane mx-2"></i> </a>
                           </div>
                       </div>
                 </div>
@@ -537,8 +606,8 @@
             jQuery('[data-youtube]').youtube_background({
                 'play-button': false
             });
-            $('.text-animation').textillate();
-            $('.text-animation').textillate();
+            AOS.init();
+
 
             const swiper = new Swiper('.swiper-comments-container', {
                 slidesPerView: 1,
