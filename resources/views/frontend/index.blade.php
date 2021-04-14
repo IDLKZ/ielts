@@ -2,7 +2,7 @@
 
 @section('content')
 {{--    Video First Slider--}}
-<section class="my-section">
+<section class="my-section vh-100" style="margin-top: -100px;">
             @if($data["background"])
 
         <div data-ytbg-play-button="true" data-youtube="{{$data["background"]->video_url}}"></div>
@@ -16,14 +16,13 @@
                     {{$data["background"]->subtitle}}
                 </p>
                 <div>
-                    <a data-aos="fade-left"  href="{{route("about")}}" class="btn bg-transparent btn-lg text-white border-white ml-2">
-                        {{__("frontend.about_title")}}
+                    <a href="{{route("about")}}" class="btn btn__primary mr-30">
+                          {{__("frontend.about_title")}}
                         <i class="fas fa-building"></i>
                     </a>
-
-                    <a data-aos="fade-left"  href="{{route("course")}}" class="btn bg-transparent btn-lg text-white border-white ml-2">
-                        {{__("frontend.all_services")}}
-                        <i class="fas fa-handshake"></i>
+                    <a href="{{route("my-ielts")}}" class="btn btn__white">
+                        {{__("frontend.menu_ielts")}}
+                        <i class="fas fa-book"></i>
                     </a>
                 </div>
             </div>
@@ -64,179 +63,233 @@
     </section>
 {{--Video End--}}
 
+<!-- ========================
+        Services Carousel
+    =========================== -->
+<section class="services-layout2 services-carousel pt-130 bg-gray">
+    <div class="container">
+        <div class="row heading mb-40">
+            @if($data["headers"]["about"])
+                <div class="col-12">
+                    <div class="d-flex align-items-center">
+                        <div class="divider divider-primary mr-30"></div>
+                        <h2 class="heading__subtitle mb-0">{{__($data["headers"]["about"]['title'])}}</h2>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="heading__title">{{__($data["headers"]["about"]['subtitle'])}}</h3>
+                </div><!-- /col-lg-5 -->
+            @else
+            <div class="col-12">
+                <div class="d-flex align-items-center">
+                    <div class="divider divider-primary mr-30"></div>
+                    <h2 class="heading__subtitle mb-0">{{__("frontend.about_title")}}</h2>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h3 class="heading__title">{{__("frontend.about_subtitle")}}</h3>
+            </div><!-- /col-lg-5 -->
+            @endif
 
-{{--Second Slider--}}
-<section class="my-section py-5 d-flex align-items-center">
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                @if($data["ielts"]->isNotEmpty())
+                <div class="slick-carousel"
+                     data-slick='{"slidesToShow": 4, "slidesToScroll": 2, "arrows": true, "dots": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 2}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
+                    <!-- service item #1 -->
+
+                    @foreach($data["ielts"] as $ielts)
+                    <div class="service-item">
+                        <div class="service__content">
+                            <div class="service__icon">
+                                <div class="bg-mini-circle blue-bg d-flex align-self-center my-2 bg-content"
+                                     style="background-image: url('{{$ielts->img}}'); background-size: cover"
+                                ></div>
+                            </div><!-- /.service__icon -->
+                            <h4 class="service__title">{{$ielts->title}}</h4>
+
+                            <a href="{{route("my-ielts")}}" class="btn btn__secondary">
+                                <span>{{__("frontend.info")}}</span>
+                                <i class="icon-arrow-right"></i>
+                            </a>
+                        </div><!-- /.service-content -->
+                    </div><!-- /.service-item -->
+                     @endforeach
+
+                </div><!-- /.carousel -->
+                @endif
+
+            </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.Services Layout 2 -->
+
+
+<!-- ========================
+      About Layout 1
+    =========================== -->
+<section class="about-layout1">
     <div class="container">
         <div class="row">
-            @if($data["headers"]["ielts"])
-                <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                    <h1 class="heading-1 blue-text">
-                       {{$data["headers"]["ielts"]["title"]}}
-                    </h1>
-                    <p class="subheading-1">
-                        {{$data["headers"]["ielts"]["subtitle"]}}
-                    </p>
-                </div>
-            @else
-            <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                <h1 class="heading-1 blue-text">
-                    {{__("frontend.ielts_title")}}
-                </h1>
-                <p class="subheading-1">
-                    {{__("frontend.ielts_subtitle")}}
-                </p>
-            </div>
-            @endif
-        </div>
-        <div class="row py-2">
-            @if($data["ielts"]->isNotEmpty())
-                @foreach($data["ielts"] as $ielts)
-                <div class="col-md-3 my-2" data-aos="zoom-in-up">
-                    <div class="card text-center py-2 border-0">
-                        <div class="bg-mini-circle blue-bg d-flex align-self-center my-2 bg-content"
-                        style="background-image: url('{{$ielts->img}}')"
-                        ></div>
-                        <p class="fs-20 font-weight-bold">{{$ielts->title}}</p>
-                        <a href="{{route("my-ielts")}}" class="btn my-btn my-btn-blue btn-sm fs-14">
-                            {{__("frontend.info")}}
-                            <i class="fas fa-info"></i>
-                        </a>
-                    </div>
-                </div>
-                @endforeach
-
-
-            @else
-            @for($i=0; $i<4; $i++)
-            <div class="col-md-3 my-2" data-aos="zoom-in-up">
-                <div class="card text-center py-2 border-0">
-                    <div class="bg-mini-circle blue-bg d-flex align-self-center my-2"></div>
-                    <p class="fs-18 font-weight-bolder">Lorem Ipsum</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <a href="" class="btn my-btn my-btn-blue btn-sm fs-14">
-                        {{__("frontend.info")}}
-                        <i class="fas fa-info"></i>
-                    </a>
-                </div>
-            </div>
-            @endfor
-            @endif
-
-
-        </div>
-    </div>
-
-
-
-</section>
-{{--End Second Slider--}}
-
-{{--    Third Second--}}
-<section>
-    <div class="container-fluid my-section">
-        <div class="row aqua-gradient">
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div class="px-md-2 py-2 text-center text-md-left px-md-4"  data-aos="zoom-out-right">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 @if($data["headers"]["about"])
-                        <h1 class="heading-1 text-white">
-                            {{$data["headers"]["about"]["title"]}}
-                        </h1>
-                        <p class="subheading-1 text-white">
-                            {{$data["headers"]["about"]["subtitle"]}}
-                        </p>
-                    @else
-                    <h1 class="heading-1 text-white">
-                    {{__("frontend.about_title")}}
-                    </h1>
-                    <p class="subheading-1 text-white">
-                    {{__("frontend.about_subtitle")}}
-                    </p>
-                    @endif
-                <br>
-                @if($data["about"])
-                        <p class="subheading-1 text-white">
-                           {{$data["about"]->title}}
-                        </p>
-                    <div class="fs-16 text-white">
-                        {!! $data["about"]->description !!}
-                    </div>
-                @else
-                <p class="fs-16 text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut, consequuntur dolore exercitationem fugiat magni praesentium? Adipisci, aperiam cum debitis delectus ducimus enim magni minus pariatur, porro quod ratione temporibus.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut, consequuntur dolore exercitationem fugiat magni praesentium? Adipisci, aperiam cum debitis delectus ducimus enim magni minus pariatur, porro quod ratione temporibus.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut, consequuntur dolore exercitationem fugiat magni praesentium? Adipisci, aperiam cum debitis delectus ducimus enim magni minus pariatur, porro quod ratione temporibus.
-                </p>
-                 @endif
-                <a href="{{route("about")}}" class="btn my-btn my-btn-blue my-btn-md">
-                    {{__("frontend.about_title")}}
-                    <i class="fas fa-users"></i>
-                </a>
-                </div>
-            </div>
-            <div class="col-md-6" data-aos="zoom-out-left">
-                <lottie-player src="{{asset("/lottie/about.json")}}" background="transparent"  speed="1"  style="width: 100%;" loop autoplay></lottie-player>
-            </div>
-
-        </div>
-    </div>
-</section>
-{{--    End Third Second--}}
-{{--Fourth Section--}}
-<section class="my-section">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-12 text-center" data-aos="zoom-in-up">
-                @if($data["headers"]["advantage"])
-                    <h1 class="heading-1 blue-text">
-                        {{$data["headers"]["advantage"]["title"]}}
-                    </h1>
-                    <p class="subheading-1">
-                        {{$data["headers"]["advantage"]["subtitle"]}}
-                    </p>
-                @else
-                <h1 class="heading-1 blue-text">
-                    {{__("frontend.advantage_title")}}
-                </h1>
-                <p class="subheading-1">
-                    {{__("frontend.advantage_subtitle")}}
-                </p>
-                @endif
-            </div>
-        </div>
-        <div class="row py-2">
-            @if($data["advantages"]->isNotEmpty())
-                @foreach($data["advantages"] as $advantage)
-                    <div class="col-md-4 my-2" data-aos="zoom-out">
-                        <div class="card text-center py-2 border-0">
-                            <div class="bg-mini-circle light-blue-bg2 d-flex align-self-center align-items-center justify-content-center my-2">
-                                <img src="{{$advantage->img}}" height="100px">
-                            </div>
-                            <p class="fs-20 font-weight-bolder">
-                                {{$advantage->title}}
-                            </p>
-                            <p>{{$advantage->subtitle}}</p>
+                    <div class="heading mb-30">
+                        <div class="d-flex align-items-center mb-20">
+                            <div class="divider divider-primary mr-30"> </div>
+                            <h2 class="heading__subtitle mb-0">{{$data["headers"]["about"]["title"]}}</h2>
                         </div>
-                    </div>
-                @endforeach
-            @else
-            @for($i=0; $i<6; $i++)
-                <div class="col-md-4 my-2" data-aos="zoom-out">
-                    <div class="card text-center py-2 border-0">
-                        <div class="bg-mini-circle blue-bg d-md-flex align-self-center my-2"></div>
-                        <p class="fs-18 font-weight-bolder">Lorem Ipsum</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-            @endfor
+                        <h3 class="heading__title mb-40">
+                            {{$data["headers"]["about"]["subtitle"]}}
+                        </h3>
+                    </div><!-- /heading -->
+
+                @else
+                    <div class="heading mb-30">
+                        <div class="d-flex align-items-center mb-20">
+                            <div class="divider divider-primary mr-30"></div>
+                            <h2 class="heading__subtitle mb-0"> {{__("frontend.about_title")}}</h2>
+                        </div>
+                        <h3 class="heading__title mb-40">
+                            {{__("frontend.about_subtitle")}}
+                        </h3>
+                    </div><!-- /heading -->
                 @endif
 
+                <div class="position-relative offset-xl-1">
+                    {!! $data["about"]->description !!}
+                </div>
+            </div><!-- /.col-lg-6 -->
+            <div class="col-sm-12 col-md-12 col-lg-5 offset-lg-1">
+                <div class="about__img mb-40">
+                    <img src="assets/images/about/1.jpg" alt="about">
+                </div><!-- /.about-img -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.About Layout 1 -->
 
-        </div>
-    </div>
+<!-- ======================
+   Features Layout 1
+   ========================= -->
+<section class="features-layout1 pb-0">
+
+        <div class="bg-img"><img src="assets/images/backgrounds/14.jpg" alt="background"></div>
+
+    <div class="container">
+        <div class="row heading heading-light mb-30">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                @if($data["headers"]["advantage"])
+                    <div class="d-flex align-items-center mb-20">
+                        <div class="divider divider-primary mr-30"> </div>
+                        <h2 class="heading__subtitle mb-0">{{$data["headers"]["advantage"]["title"]}}</h2>
+                    </div>
+                                    <h3 class="heading__title">{{$data["headers"]["advantage"]["subtitle"]}} </h3>
+                @else
+                    <div class="d-flex align-items-center mb-20">
+                        <div class="divider divider-primary mr-30"> </div>
+                        <h2 class="heading__subtitle mb-0">{{__("frontend.advantage_title")}}</h2>
+                    </div>
+                        <h3 class="heading__title">{{__("frontend.advantage_subtitle")}} </h3>
+                @endif
+
+            </div><!-- /col-lg-5 -->
+        @if($data["advantages"]->isNotEmpty())
+            @foreach($data["advantages"] as $advantage)
+                <!-- Feature item #1 -->
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="feature-item text-center">
+                            <div class="feature__icon">
+                                <div class="bg-mini-circle d-flex align-self-center align-items-center justify-content-center my-2">
+                                    <img src="{{$advantage->img}}" height="100px">
+                                </div>
+                            </div>
+                            <h4 class="feature__title"> {{$advantage->title}}</h4>
+                            <p class="feature__desc">
+                                {{$advantage->subtitle}}
+                            </p>
+                        </div><!-- /.feature-item -->
+                    </div><!-- /.col-lg-3 -->
+                @endforeach
+            @endif
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.Features Layout 1 -->
+
+
+<section class="container-fluid awards bg-secondary">
+    <div class="row heading heading-light">
+        <div class="col-sm-12">
+            <h3 class="heading__title">Our awards and recognitions</h3>
+        </div><!-- /col-lg-5 -->
+        <div class="col-sm-12">
+            <p class="heading__desc">Trusted by the world's best organizations, for 21 years and running, it has
+                been delivering smiles to hundreds of IT advisors, developers, users, and business owners.
+            </p>
+        </div><!-- /.col-lg-5 -->
+    </div><!-- /.row -->
+    <div class="row awards-wrapper">
+        <div class="col-sm-12">
+            <div class="awards-carousel-wrapper">
+                <div class="slick-carousel overflow-hidden"
+                     data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows": false, "dots": true,"autoplay": true, "autoplaySpeed": 4000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 768, "settings": {"slidesToShow": 1}}, {"breakpoint": 570, "settings": {"slidesToShow": 1}}]}'>
+                    <!-- fancybox item #1 -->
+                    <div class="fancybox-item">
+                        <div class="fancybox__icon-img">
+                            <img src="assets/images/awards/icons/1.png" alt="icon">
+                        </div><!-- /.fancybox__icon-img -->
+                        <div class="fancybox__content">
+                            <h4 class="fancybox__title">CSS Design Award</h4>
+                            <p class="fancybox__desc">A web design & development award platform for digital folk,
+                                UI/UX
+                                peeps
+                                and inspiring leaders of the web.
+                            </p>
+                        </div><!-- /.fancybox-content -->
+                    </div><!-- /.fancybox-item -->
+                    <!-- fancybox item #2 -->
+                    <div class="fancybox-item">
+                        <span class="pinned-ribbon"></span>
+                        <div class="fancybox__icon-img">
+                            <img src="assets/images/awards/icons/2.png" alt="icon">
+                        </div><!-- /.fancybox__icon-img -->
+                        <div class="fancybox__content">
+                            <h4 class="fancybox__title">W3 Design Award</h4>
+                            <p class="fancybox__desc">Awards celebrates digital by honoring outstanding Websites, Web
+                                Marketing, Video, Sites, Apps & Social content.
+                            </p>
+                        </div><!-- /.fancybox-content -->
+                    </div><!-- /.fancybox-item -->
+                    <!-- fancybox item #3 -->
+                    <div class="fancybox-item">
+                        <div class="fancybox__icon-img">
+                            <img src="assets/images/awards/icons/3.png" alt="icon">
+                        </div><!-- /.fancybox__icon-img -->
+                        <div class="fancybox__content">
+                            <h4 class="fancybox__title">The FWA Award</h4>
+                            <p class="fancybox__desc">Showcasing innovation every day since 2000, our mission is to
+                                showcase
+                                cutting edge creativity, regardless
+                            </p>
+                        </div><!-- /.fancybox-content -->
+                    </div><!-- /.fancybox-item -->
+                    <!-- fancybox item #4 -->
+                    <div class="fancybox-item">
+                        <div class="fancybox__icon-img">
+                            <img src="assets/images/awards/icons/3.png" alt="icon">
+                        </div><!-- /.fancybox__icon-img -->
+                        <div class="fancybox__content">
+                            <h4 class="fancybox__title">WWW Awards</h4>
+                            <p class="fancybox__desc">The awards that recognize the talent and effort of the best web
+                                designers, developers and agencies in the world.
+                            </p>
+                        </div><!-- /.fancybox-content -->
+                    </div><!-- /.fancybox-item -->
+                </div><!-- /.carousel  -->
+            </div><!-- /.awards-carousel-wrapper -->
+        </div><!-- /.col-12 -->
+    </div><!-- /.row -->
 </section>
-{{--End Fourth Section--}}
-
 {{--    Fifth Section --}}
     <section class="my-section atlas-gradient d-flex align-items-center">
         <div class="container">
