@@ -2,69 +2,83 @@
     <div class="footer-primary">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-4 footer-widget footer-widget-about">
+                <div class="col-sm-12 col-md-12 col-lg-3 footer-widget footer-widget-about">
                     <div class="footer-widget__content">
-                        @if($footer)
-                            <div class="text-md-left text-center">
-                                <img src="{{asset($footer->img)}}" height="40px">
-                                <p class="fs-16 my-2">
-                                    {{$footer->title}}
-                                </p>
-                            </div>
-                        @else
-                            <div class="text-md-left text-center">
-                                <img src="{{asset("/logo.png")}}" height="40px">
-                                <p class="fs-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor est fugit laboriosam necessitatibus nisi quos! Ad aliquam beatae cupiditate deserunt, eos laborum maxime minus perspiciatis, sed soluta ut voluptas.</p>
-                            </div>
-                        @endif
+                        <img src="/assets/images/logo/logo-dark.png" alt="logo" class="mb-30">
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-xl-3 -->
-                <div class="col-sm-6 col-md-4 col-lg-4 footer-widget footer-widget-nav">
-                    <h6 class="footer-widget__title">{{__("frontend.useful_links")}}</h6>
+                <div class="col-sm-6 col-md-6 col-lg-2 footer-widget footer-widget-nav">
+                    <h6 class="footer-widget__title">{{__("frontend.menu_about")}}</h6>
                     <div class="footer-widget__content">
                         <nav>
                             <ul class="list-unstyled">
-                                <li><a href="/">{{__("frontend.menu_main")}}</a></li>
                                 <li><a href="{{route("about")}}">{{__("frontend.menu_who_we_are")}}</a></li>
                                 <li><a href="{{route("teacher")}}">{{__("frontend.menu_teachers")}}</a></li>
-                                <li><a href="{{route("my-ielts")}}">{{__("frontend.menu_ielts")}}</a></li>
-                                <li><a href="{{route("course")}}">{{__("frontend.menu_course")}}</a></li>
-                                <li><a href="{{route("my-prices")}}">{{__("frontend.menu_price")}}</a></li>
-                                <li><a href="{{route("blogs")}}">{{__("frontend.menu_blog")}}</a></li>
-                                <li><a href="{{route("contact")}}">{{__("frontend.menu_contact")}}</a></li>
-
+                                <li><a href="{{route("gallery")}}">{{__("frontend.menu_gallery")}}</a></li>
+                                <li><a href="{{route("faq")}}">{{__("frontend.menu_fag")}}</a></li>
                             </ul>
                         </nav>
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-2 -->
-                <div class="col-sm-6 col-md-6 col-lg-4 footer-widget">
-                    <h6 class="footer-widget__title">{{__("frontend.social")}}</h6>
+                <div class="col-sm-6 col-md-6 col-lg-2 footer-widget footer-widget-nav">
+                    <h6 class="footer-widget__title">{{__("frontend.menu_service")}}</h6>
                     <div class="footer-widget__content">
-                        <ul class="social-icons list-unstyled mb-0 mr-30">
-                            @if($socials->isNotEmpty())
-                                @foreach($socials as $social)
-                                    <li>
-                                    <a href="{{$social->link}}" target="_blank"><i class="{{$social->icon}}"></i></a>
-                                    </li>
-                                @endforeach
-                            @endif
-                        </ul><!-- /.social-icons -->
+                        <nav>
+                            <ul class="list-unstyled">
+                                <li><a href="{{route("course")}}">{{__("frontend.menu_service")}}</a></li>
+                                <li><a href="{{route("my-ielts")}}">{{__("frontend.menu_ielts")}}</a></li>
+                            </ul>
+                        </nav>
+                    </div><!-- /.footer-widget__content -->
+                </div><!-- /.col-lg-2 -->
+                <div class="col-sm-6 col-md-8 col-lg-3 footer-widget">
+                    <h6 class="footer-widget__title">Newsletter</h6>
+                    <div class="footer-widget__content">
+                        <form class="footer-form">
+                            <div class="form-group mb-20">
+                                <input type="text" class="form-control" placeholder="Your Email Address">
+                                <button type="submit" class="footer-form__submit"><i class="icon-arrow-right"></i></button>
+                            </div>
+                            <div class="custom-control custom-checkbox d-flex align-items-center mb-20">
+                                <input type="checkbox" class="custom-control-input" id="terms">
+                                <label class="custom-control-label" for="terms">I accept the privacy and terms.</label>
+                            </div>
+                        </form>
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-3 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </div><!-- /.footer-primary -->
+    </div>
     <div class="footer-secondary">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-sm-12 col-md-5 col-lg-5">
                     <div class="footer__copyrights">
-                        <span class="fz-14">&copy; 2021 IELTS, All Rights Reserved. With Love by</span>
-                        <a class="fz-14 color-primary" href="/">IDL</a>
+                        <span class="fz-14">© 2020 Smart Data, All Rights Reserved. With Love by</span>
+                        <a class="fz-14 color-primary" href="http://themeforest.net/user/7oroof">IDL</a>
                     </div>
                 </div><!-- /.col-lg-6 -->
-
+                <div class="col-sm-12 col-md-2 col-lg-2 text-center">
+                    <button id="scrollTopBtn" class="my-2"><i class="icon-arrow-up-2"></i></button>
+                </div><!-- /.col-lg-2 -->
+                <div class="col-sm-12 col-md-5 col-lg-5 d-flex flex-wrap justify-content-end align-items-center">
+                    <ul class="social-icons list-unstyled mb-0 mr-30">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul><!-- /.social-icons -->
+                    <div>
+                        <a href="#" class="btn btn__white btn__download mr-20">
+                            <i class="fab fa-apple"></i>
+                            <span>App Store</span>
+                        </a>
+                        <a href="#" class="btn btn__white btn__download">
+                            <i class="fab fa-google-play"></i>
+                            <span>Google Play</span>
+                        </a>
+                    </div>
+                </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </div><!-- /.footer-secondary -->
+    </div>
 </footer><!-- /.Footer -->

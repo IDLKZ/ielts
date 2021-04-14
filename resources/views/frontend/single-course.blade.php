@@ -1,23 +1,11 @@
 @extends("frontend.layout.layout")
 
 @section('content')
-    <section>
-        <section class="breadcrumb-bg">
-            <div class="container ">
-                <div class="row mh-350 d-flex justify-content-center align-items-center">
-                    <div class="col-md-12 px-4">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb bg-transparent">
-                                <li class="breadcrumb-item fs-24 text-white"><a href="/">{{__("frontend.menu_main")}}</a></li>
-                                <li class="breadcrumb-item fs-24 text-white"><a href="{{route("course")}}">{{__("frontend.menu_course")}}</a></li>
-                                <li class="breadcrumb-item fs-24 text-white active" aria-current="page">{{$course->title}}</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="container mh-400">
+    <section class="page-title page-title-layout6 text-center bg-overlay bg-overlay-gradient bg-parallax">
+        <div class="bg-img"><img src="/assets/images/page-titles/3.jpg" alt="background"></div>
+    </section><!-- /.page-title -->
+
+        <div class="container">
             <div class="row py-4 my-4">
                     <div class="col-md-12">
                         <h1 class="heading-1">
@@ -35,12 +23,6 @@
             </div>
 
         </div>
-
-
-
-
-
-    </section>
 
 @endsection
 

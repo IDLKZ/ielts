@@ -55,12 +55,12 @@
 
 
                     </li><!-- /.nav-item -->
-                    <li class="nav__item ">
-                        <a href="/"  class="{{ request()->routeIs('my-prices') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_price")}}</a>
-                    </li><!-- /.nav-item -->
-                    <li class="nav__item ">
-                        <a href="/"  class="{{ request()->routeIs('blogs') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_blog")}}</a>
-                    </li><!-- /.nav-item -->
+{{--                    <li class="nav__item ">--}}
+{{--                        <a href="/"  class="{{ request()->routeIs('my-prices') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_price")}}</a>--}}
+{{--                    </li><!-- /.nav-item -->--}}
+{{--                    <li class="nav__item ">--}}
+{{--                        <a href="/"  class="{{ request()->routeIs('blogs') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_blog")}}</a>--}}
+{{--                    </li><!-- /.nav-item -->--}}
                     <li class="nav__item ">
                         <a href="/"  class="{{ request()->routeIs('contact') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_contact")}}</a>
                     </li><!-- /.nav-item -->
@@ -69,7 +69,7 @@
                         <ul class="dropdown-menu">
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <li class="nav__item">
-                                <a class="{{(\App\Models\Language::getLanguage())["format"] == $localeCode}} nav__item-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <a class=" nav__item-link" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                     {{ $properties['native'] }}
                                 </a>
                             </li><!-- /.nav-item -->

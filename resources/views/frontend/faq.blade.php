@@ -1,83 +1,40 @@
 @extends("frontend.layout.layout")
 
 @section('content')
-    <section>
-        <section class="breadcrumb-bg">
-            <div class="container ">
-                <div class="row mh-350 d-flex justify-content-center align-items-center">
-                    <div class="col-md-12 px-4">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb bg-transparent">
-                                <li class="breadcrumb-item fs-24 text-white"><a href="/">{{__("frontend.menu_main")}}</a></li>
-                                <li class="breadcrumb-item fs-24 text-white active" aria-current="page">{{__("frontend.menu_fag")}}</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="container mh-400">
-            <div class="row py-4">
-                <div class="col-md-12 text-center">
-                    @if($header)
-                        <h1 class="heading-1 blue-text">
-                            {{$header->title}}
-                        </h1>
-                        <p class="subheading-1">
-                            {{$header->subtitle}}
-                        </p>
-                    @else
-                    <h1 class="heading-1 blue-text">
-                        F.A.Q
-                    </h1>
-                    @endif
-
-                </div>
-            </div>
+    <section class="page-title page-title-layout6 text-center bg-overlay bg-overlay-gradient bg-parallax">
+        <div class="bg-img"><img src="/assets/images/page-titles/6.jpg" alt="background"></div>
+        <div class="container">
             <div class="row">
-                <div class="col-md-6 my-2">
-                    <div class="accordion" id="accordionExample">
-                        @foreach($faqs as $faq)
-                            <div class="card my-2">
-                                <div class="card-header footer-bg" id="headingOne">
-                                    <h2 class="mb-0">
+                <div class="col-12">
+                    <h1 class="pagetitle__heading mb-0">FAQs</h1>
+                </div><!-- /.col-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.page-title -->
 
-                                        <button class="btn btn-link fs-22 text-decoration-none text-white" type="button" data-toggle="collapse" data-target="{{"#id".$faq->id}}" aria-expanded="true" aria-controls="collapseOne">
-                                            {{$faq->question}}
-                                        </button>
-                                    </h2>
-                                </div>
 
-                                <div id="id{{$faq->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        {!!$faq->answer!!}
-                                    </div>
-                                </div>
+    <section class="faq pt-130 pb-100">
+        <div class="container">
+            <div class="row" id="accordion">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    @foreach ($faqs as $faq)
+                        <div class="accordion-item">
+                            <div class="accordion__header" data-toggle="collapse" data-target="#collapse{{$faq->id}}">
+                                <a class="accordion__title" href="#">{{$faq->question}}</a>
+                            </div><!-- /.accordion-item-header -->
+                            <div id="collapse{{$faq->id}}" class="collapse" data-parent="#accordion">
+                                <div class="accordion__body">
+                                    <p>{!! $faq->answer !!}</p>
+                                </div><!-- /.accordion-item-body -->
                             </div>
-                        @endforeach
+                        </div><!-- /.accordion-item -->
+                    @endforeach
+                </div><!-- /.col-lg-6 -->
 
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.FAQ -->
 
-                    </div>
-
-
-
-
-
-
-                </div>
-                <div class="col-md-6 my-2">
-                    <lottie-player src="{{asset("/lottie/question.json")}}" background="transparent"  speed="1"  style="width: 100%;" loop autoplay></lottie-player>
-                </div>
-
-
-            </div>
-        </div>
-
-
-
-
-
-    </section>
 
 @endsection
 
