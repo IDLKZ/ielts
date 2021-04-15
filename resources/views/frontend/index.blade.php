@@ -4,6 +4,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+
 @endpush
 @section('content')
 {{--    Video First Slider--}}
@@ -460,32 +461,14 @@ Features Layout 1
     <script src="{{asset("/js/jquery.youtube-background.min.js")}}"></script>
 {{--    <script src="{{asset("/js/jquery.lettering-0.6.1.min.js")}}"></script>--}}
 {{--    <script src="{{asset("/js/textillate.js")}}"></script>--}}
-    <script src="{{asset('js/wow.js')}}"></script>
+{{--    <script src="{{asset('js/wow.js')}}"></script>--}}
     <script type="text/javascript">
+
         jQuery(document).ready(function() {
             jQuery('[data-youtube]').youtube_background({
                 'play-button': false
             });
-
-            // const swiper = new Swiper('.swiper-comments-container', {
-            //     slidesPerView: 1,
-            //     spaceBetween: 30,
-            //     pagination: {
-            //         el: '.swiper-pagination',
-            //         clickable: true,
-            //     },
-            // });
-            // new Swiper('.swiper-service-container', {
-            //     slidesPerView: 1,
-            //     spaceBetween: 30,
-            //     pagination: {
-            //         el: '.swiper-pagination',
-            //         clickable: true,
-            //     },
-            // });
-
-            new WOW().init();
-
         });
+
     </script>
 @endpush

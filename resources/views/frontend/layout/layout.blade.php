@@ -64,7 +64,7 @@
 </div><!-- /.wrapper -->
 
 <script src="{{asset("/js/frontend.js")}}"></script>
-<script src="{{asset("/js/jquery.youtube-background.min.js")}}"></script>
+{{--<script src="{{asset("/js/jquery.youtube-background.min.js")}}"></script>--}}
 @stack("scripts")
 </body>
 
