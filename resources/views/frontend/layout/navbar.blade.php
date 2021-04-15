@@ -15,11 +15,11 @@
             <div class="collapse navbar-collapse" id="mainNavigation">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav__item ">
-                        <a href="/"  class="{{ request()->routeIs('main') ? 'active' : '' }} nav__item-link ">{{__("frontend.menu_main")}}</a>
+                        <a href="/"  class="{{ request()->routeIs('main') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_main")}}</a>
                     </li><!-- /.nav-item -->
 
                     <li class="nav__item  has-dropdown">
-                        <a href="#" class="{{ request()->routeIs('about') ? 'active' : '' }}  nav__item-link dropdown-toggle">{{__("frontend.menu_about")}}</a>
+                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_about")}}</a>
                         <ul class="dropdown-menu">
                             <li class="nav__item">
                                 <a class="nav__item-link" href="{{route("about")}}">{{__("frontend.menu_who_we_are")}}</a>
@@ -40,7 +40,7 @@
 
                     </li><!-- /.nav-item -->
                     <li class="nav__item  has-dropdown">
-                        <a href="#" class="nav__item-link dropdown-toggle">{{__("frontend.menu_service")}}</a>
+                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_service")}}</a>
                         <ul class="dropdown-menu">
                             <li class="nav__item">
                                 <a class="nav__item-link" href="{{route("course")}}">{{__("frontend.menu_service")}}</a>
@@ -65,7 +65,7 @@
                         <a href="/"  class="{{ request()->routeIs('contact') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_contact")}}</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item  has-dropdown">
-                        <a href="#" class="nav__item-link dropdown-toggle">{{__("frontend.menu_languages")}}</a>
+                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_languages")}}</a>
                         <ul class="dropdown-menu">
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <li class="nav__item">
@@ -81,7 +81,7 @@
 
                     </li><!-- /.nav-item -->
                     <li class="nav__item  has-dropdown">
-                        <a href="#" class="nav__item-link dropdown-toggle">{{__("frontend.menu_cabinet")}}</a>
+                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_cabinet")}}</a>
                         <ul class="dropdown-menu">
                             @auth()
                             <li class="nav__item">

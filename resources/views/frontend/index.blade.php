@@ -106,10 +106,10 @@
 
                     @foreach($data["ielts"] as $ielts)
                     <div class="service-item wow bounceInUp">
-                        <div class="service__content">
+                        <div class="service__content text-center">
                             <div class="service__icon">
                                 <div class="bg-mini-circle blue-bg d-flex align-self-center my-2 bg-content"
-                                     style="background-image: url('{{$ielts->img}}'); background-size: cover"
+                                     style="background-image: url('{{$ielts->img}}'); background-size: cover; margin: auto"
                                 ></div>
                             </div><!-- /.service__icon -->
                             <h4 class="service__title">{{$ielts->title}}</h4>
@@ -458,33 +458,31 @@ Features Layout 1
 
 @push("scripts")
     <script src="{{asset("/js/jquery.youtube-background.min.js")}}"></script>
-    <script src="{{asset("/js/jquery.lettering-0.6.1.min.js")}}"></script>
-    <script src="{{asset("/js/textillate.js")}}"></script>
+{{--    <script src="{{asset("/js/jquery.lettering-0.6.1.min.js")}}"></script>--}}
+{{--    <script src="{{asset("/js/textillate.js")}}"></script>--}}
     <script src="{{asset('js/wow.js')}}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             jQuery('[data-youtube]').youtube_background({
                 'play-button': false
             });
-            AOS.init();
 
-
-            const swiper = new Swiper('.swiper-comments-container', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-            });
-            new Swiper('.swiper-service-container', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-            });
+            // const swiper = new Swiper('.swiper-comments-container', {
+            //     slidesPerView: 1,
+            //     spaceBetween: 30,
+            //     pagination: {
+            //         el: '.swiper-pagination',
+            //         clickable: true,
+            //     },
+            // });
+            // new Swiper('.swiper-service-container', {
+            //     slidesPerView: 1,
+            //     spaceBetween: 30,
+            //     pagination: {
+            //         el: '.swiper-pagination',
+            //         clickable: true,
+            //     },
+            // });
 
             new WOW().init();
 
