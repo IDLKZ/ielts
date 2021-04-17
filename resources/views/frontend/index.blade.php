@@ -140,9 +140,15 @@
                     <h2 class="heading__subtitle mb-0">{{__('frontend.about_title')}}</h2>
                 </div>
             </div><!-- /.col-12 -->
+            @if($data["headers"]["about"])
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="heading__title mb-40">{{$data["headers"]["about"]["title"]}}</h3>
             </div><!-- /.col-lg-6 -->
+            @else
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <h3 class="heading__title mb-40">{{__("frontend.about_title")}}</h3>
+                </div><!-- /.col-lg-6 -->
+            @endif
             <div class="col-sm-12 col-md-12 col-lg-6">
 
             </div><!-- /.col-lg-6 -->
@@ -154,7 +160,9 @@
                 </div>
             </div><!-- /.col-lg-6 -->
             <div class="col-sm-12 col-md-12 col-lg-6 d-flex flex-column justify-content-between">
-                {!! $data["about"]->description !!}
+                @if (!is_null($data['about']))
+                    {!! $data["about"]->description !!}
+                @endif
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </div><!-- /.container -->
@@ -297,10 +305,17 @@ Features Layout 1
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                @if($data["headers"]["news"])
                 <div class="heading text-center mb-40">
                     <h2 class="heading__subtitle">{{$data["headers"]["news"]["subtitle"]}}</h2>
                     <h3 class="heading__title">{{$data["headers"]["news"]["title"]}}</h3>
                 </div><!-- /.heading -->
+                @else
+                    <div class="heading text-center mb-40">
+                        <h2 class="heading__subtitle">{{__("frontend.news_title")}}</h2>
+                        <h3 class="heading__title">{{__("frontend.news_subtitle")}}</h3>
+                    </div><!-- /.heading -->
+                @endif
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
         <div class="row">
@@ -340,9 +355,15 @@ Features Layout 1
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 col-inner">
-                <div class="heading heading-light">
-                    <h3 class="heading__title mb-30">{{$data["headers"]["review"]["title"]}}</h3>
-                </div>
+                @if ($data['headers']['review'])
+                    <div class="heading heading-light">
+                        <h3 class="heading__title mb-30">{{$data["headers"]["review"]["title"]}}</h3>
+                    </div>
+                @else
+                    <div class="heading heading-light">
+                        <h3 class="heading__title mb-30">{{__("frontend.comment_title")}}</h3>
+                    </div>
+                @endif
                 <div class="testimonials testimonials-wrapper">
                     <div class="slider-with-navs">
                     @if($data["reviews"]->isNotEmpty())
