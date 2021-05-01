@@ -421,52 +421,32 @@ Features Layout 1
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                 <div class="contact-panel">
-                    <form class="contact-panel__form" method="post" action="assets/php/contact.php" id="contactForm">
+                    <form class="contact-panel__form" method="post" action="{{route('send-message')}}">
+                        @csrf
                         <div class="row">
                             <div class="col-12">
-                                <h4 class="contact-panel__title mb-20">Request A Quote</h4>
-                                <p class="contact-panel__desc mb-30">Our deep pool of certified engineers and IT staff are ready
-                                    to
-                                    help you to keep your IT business safe & ensure high availability.</p>
+                                <h4 class="contact-panel__title mb-20">{{__('frontend.contact_us')}}</h4>
                             </div> <!-- /.col-12 -->
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name" id="contact-name" name="contact-name"
+                                    <input type="text" class="form-control" placeholder="Name" id="contact-name" name="name"
                                            required>
                                 </div>
                             </div><!-- /.col-lg-6 -->
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Email" id="contact-email"
-                                           name="contact-email" required>
+                                           name="email" required>
                                 </div>
                             </div><!-- /.col-lg-6 -->
-                            <div class="col-sm-6 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <select class="form-control">
-                                        <option value="0">Inquiry</option>
-                                        <option value="1">IT Management Services 2</option>
-                                        <option value="2">IT Management Services 3</option>
-                                    </select>
-                                </div>
-                            </div><!-- /.col-lg-6 -->
-                            <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
-                                           name="contact-phone">
+                                           name="phone">
                                 </div>
                             </div><!-- /.col-lg-6 -->
                             <div class="col-12">
-                                <div class="form-group">
-                      <textarea class="form-control" placeholder="Additional Details!" id="contact-message"
-                                name="contact-message"></textarea>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center mb-20">
-                                    <input type="checkbox" class="custom-control-input" id="acceptTerms">
-                                    <label class="custom-control-label" for="acceptTerms">I accept the privacy and terms.</label>
-                                </div>
-                                <button type="submit" class="btn btn__primary btn__xl btn__block">Submit Request </button>
-                                <div class="contact-result"></div>
+                                <button type="submit" class="btn btn__primary btn__xl btn__block">{{__('frontend.send')}}</button>
                             </div><!-- /.col-12 -->
                         </div><!-- /.row -->
                     </form>

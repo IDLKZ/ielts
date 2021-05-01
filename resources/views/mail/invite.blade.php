@@ -15,7 +15,7 @@
 <p>ФИО заявителя {{$detail["name"]}}</p>
 <p>Почта {{$detail["email"]}}</p>
 <p>Телефон {{$detail["phone"]}}</p>
-<p>Сообщение {{$detail["message"]}}</p>
+{{--<p>Сообщение {{$detail["message"]}}</p>--}}
 
 
 

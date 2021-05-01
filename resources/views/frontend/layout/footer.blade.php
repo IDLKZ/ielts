@@ -54,8 +54,8 @@
             <div class="row align-items-center">
                 <div class="col-sm-12 col-md-5 col-lg-5">
                     <div class="footer__copyrights">
-                        <span class="fz-14">© 2020 Smart Data, All Rights Reserved. With Love by</span>
-                        <a class="fz-14 color-primary" href="http://themeforest.net/user/7oroof">IDL</a>
+                        <span class="fz-14">© 2021, All Rights Reserved. With Love by</span>
+                        <a class="fz-14 color-primary" href="javascript:void (0)">IDL</a>
                     </div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-12 col-md-2 col-lg-2 text-center">
@@ -68,11 +68,11 @@
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     </ul><!-- /.social-icons -->
                     <div>
-                        <a href="#" class="btn btn__white btn__download mr-20">
+                        <a href="javascript:void (0)" class="btn btn__white btn__download mr-20">
                             <i class="fab fa-apple"></i>
                             <span>App Store</span>
                         </a>
-                        <a href="#" class="btn btn__white btn__download">
+                        <a href="javascript:void (0)" class="btn btn__white btn__download">
                             <i class="fab fa-google-play"></i>
                             <span>Google Play</span>
                         </a>

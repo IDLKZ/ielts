@@ -131,17 +131,18 @@ class FrontendController extends Controller
     }
 
     public function sendMessage(Request $request){
-        $this->validate($request,["name"=>"required","email"=>"required|email","phone"=>"required","message"=>"required"]);
-        $emails = Email::pluck('email')->toArray();
-        if(count($emails)){
+        $this->validate($request,["name"=>"required","email"=>"required|email","phone"=>"required"]);
+//        $emails = Email::pluck('email')->toArray();
+        $emails = 'nurbakit_5496@mail.ru';
+//        if(count($emails)){
             Mail::to($emails)->send(new SendMessage($request->all()));
             return redirect()->route('contact')
                 ->with('success',__("messages.success"));
-        }
-        else{
-            return redirect()->route('contact')
-                ->with('fail',__("messages.failed"));
-        }
+//        }
+//        else{
+//            return redirect()->route('contact')
+//                ->with('fail',__("messages.failed"));
+//        }
 
     }
 

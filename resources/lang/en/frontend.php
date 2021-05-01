@@ -53,7 +53,10 @@ Professionally preparing for the IELTS test.",
 "social"=>"We are in the social network. networks",
 "teacher_title" => "Teachers of our school",
 "teacher_subtitle" => "Teachers of our school are real professionals",
-"send" => " Send"
+"send" => " Send",
+
+
+    "contact_us" => "Request A Quote"
 
 
 ];
