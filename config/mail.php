@@ -109,7 +109,7 @@ return [
 
     'stream' => [
         'ssl' => [
-            'allow_self_signed' => true,
+            'allow_self_signed' => false,
             'verify_peer' => false,
             'verify_peer_name' => false,
         ],
