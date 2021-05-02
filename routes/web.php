@@ -19,6 +19,14 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
+    Route::get('clear_cache', function () {
+
+        Artisan::call('config:cache');
+
+        return 'DONE!';
+
+    });
+
     Route::get('/', [FrontendController::class,"index"]);
     Route::get("/about",[FrontendController::class,"about"])->name("about");
 
