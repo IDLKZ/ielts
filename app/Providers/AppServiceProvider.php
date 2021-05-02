@@ -46,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
             $footer = Footer::orderBy("created_at","desc")->first();
             $view->with("footer",$footer);
         });
+        \view()->composer("frontend.layout.footer",function ($view){
+            $logo = Logo::orderBy("created_at","desc")->first();
+            $view->with("logo",$logo);
+        });
         Paginator::useBootstrap();
     }
 }

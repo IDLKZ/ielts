@@ -62,7 +62,7 @@
 {{--                        <a href="/"  class="{{ request()->routeIs('blogs') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_blog")}}</a>--}}
 {{--                    </li><!-- /.nav-item -->--}}
                     <li class="nav__item ">
-                        <a href="/"  class="{{ request()->routeIs('contact') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_contact")}}</a>
+                        <a href="{{route('main')}}#contact"  class="{{ request()->routeIs('contact') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_contact")}}</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item  has-dropdown">
                         <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_languages")}}</a>

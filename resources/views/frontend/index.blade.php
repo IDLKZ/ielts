@@ -350,7 +350,7 @@ Features Layout 1
 <!-- =========================
        Banner layout 2
       =========================== -->
-<section class="banner-layout2 pb-0 bg-overlay bg-overlay-primary">
+<section class="banner-layout2 pb-0 bg-overlay bg-overlay-primary" id="contact">
     <div class="bg-img"><img src="assets/images/banners/8.jpg" alt="background"></div>
     <div class="container-fluid">
         <div class="row">

@@ -27,7 +27,7 @@ Route::group(
 
     });
 
-    Route::get('/', [FrontendController::class,"index"]);
+    Route::get('/', [FrontendController::class,"index"])->name('main');
     Route::get("/about",[FrontendController::class,"about"])->name("about");
 
     Route::get("/teacher",[FrontendController::class,"teacher"])->name("teacher");

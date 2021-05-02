@@ -4,7 +4,11 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-3 footer-widget footer-widget-about">
                     <div class="footer-widget__content">
-                        <img src="/assets/images/logo/logo-dark.png" alt="logo" class="mb-30">
+                        @if($logo)
+                            <img src="{{asset($logo->img)}}"  height="40px" alt="logo" class="mb-30">
+                        @else
+                            <img src="{{asset("/logo.png")}}"  height="40px" alt="logo" class="mb-30">
+                        @endif
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-xl-3 -->
                 <div class="col-sm-6 col-md-6 col-lg-2 footer-widget footer-widget-nav">
