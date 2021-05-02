@@ -136,7 +136,7 @@ class FrontendController extends Controller
         $emails = 'nurbakit_5496@mail.ru';
 //        if(count($emails)){
             Mail::to($emails)->send(new SendMessage($request->all()));
-            return redirect()->route('contact')
+            return redirect()->route('main')
                 ->with('success',__("messages.success"));
 //        }
 //        else{
