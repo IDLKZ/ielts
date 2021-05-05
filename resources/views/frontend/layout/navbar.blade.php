@@ -48,6 +48,9 @@
                             <li class="nav__item">
                                 <a class="nav__item-link" href="{{route("my-ielts")}}">{{__("frontend.menu_ielts")}}</a>
                             </li><!-- /.nav-item -->
+                            <li class="nav__item">
+                                <a class="nav__item-link" href="{{route("schedule")}}">{{__("frontend.menu_schedule")}}</a>
+                            </li><!-- /.nav-item -->
 
 
                         </ul><!-- /.dropdown-menu -->

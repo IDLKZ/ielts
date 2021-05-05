@@ -47,7 +47,7 @@ Route::group(
     Route::get("/contact",[FrontendController::class,"contact"])->name("contact");
 
     Route::post("/send-message",[FrontendController::class,"sendMessage"])->name("send-message");
-
+Route::get('/schedule', [FrontendController::class, 'schedule'])->name('schedule');
 
     Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
     Route::post("/auth",[\App\Http\Controllers\AuthController::class,"auth"])->name("auth");
@@ -79,11 +79,14 @@ Route::group(
         Route::resource('footers', App\Http\Controllers\FooterController::class);
         Route::resource('socials', App\Http\Controllers\SocialController::class);
         Route::post("admin-change",[\App\Http\Controllers\HomeController::class,"change"])->name("admin-change");
+        Route::resource('schedules', App\Http\Controllers\ScheduleController::class);
     });
 
 
 });
 Route::post('ckeditor/upload', [ContentController::class,"upload"])->name('ckeditor.upload');
+
+
 
 
 

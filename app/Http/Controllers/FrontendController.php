@@ -14,6 +14,7 @@ use App\Models\Language;
 use App\Models\News;
 use App\Models\Phone;
 use App\Models\Price;
+use App\Models\Schedule;
 use App\Models\Seo;
 use App\Models\Service;
 use App\Models\Social;
@@ -21,6 +22,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Laracasts\Flash\Flash;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class FrontendController extends Controller
 {
@@ -147,5 +149,11 @@ class FrontendController extends Controller
     }
 
 
+    public function schedule()
+    {
+        $schedules = Schedule::getSchedule();
+        $header =  Header::where(["language_id"=>Language::getLanguage(),"page"=>"schedule"])->orderBy("created_at","desc")->first();
+        return view('frontend.schedule', compact('schedules', 'header'));
+    }
 
 }

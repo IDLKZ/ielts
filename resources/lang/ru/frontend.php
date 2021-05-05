@@ -56,5 +56,15 @@ return [
     "send"=>"Отправить",
 
 
-    "contact_us" => "Свяжитесь с нами"
+    "contact_us" => "Свяжитесь с нами",
+    'schedule_title' => 'Расписание',
+
+    'schedules_weekday' => 'День недели',
+    'schedules_start' => 'Начало',
+    'schedules_end' => 'Конец',
+    'schedules_title' => 'Занятия',
+    'schedules_type' => 'Тип занятия',
+    'schedules_coachers' => 'Тренера',
+
+    'not_found' => 'Ничего не найдено'
 ];

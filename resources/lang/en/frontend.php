@@ -56,7 +56,17 @@ Professionally preparing for the IELTS test.",
 "send" => " Send",
 
 
-    "contact_us" => "Request A Quote"
+    "contact_us" => "Request A Quote",
+    'schedule_title' => 'Schedules',
+
+    'schedules_weekday' => 'Weekday',
+    'schedules_start' => 'Start',
+    'schedules_end' => 'End',
+    'schedules_title' => 'Title',
+    'schedules_type' => 'Type',
+    'schedules_coachers' => 'Coachers',
+
+    'not_found' => 'Not Found'
 
 
 ];

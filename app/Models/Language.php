@@ -22,4 +22,60 @@ class Language extends Model
             return 1;
         }
     }
+
+    public static function getDays()
+    {
+        switch (LaravelLocalization::getCurrentLocale()) {
+            case 'en':
+                $dayweek = [
+                    "Monday" => "Monday",
+                    "Tuesday" => "Tuesday",
+                    "Wednesday" => "Wednesday",
+                    "Thursday" => "Thursday",
+                    "Friday" => "Friday",
+                    "Saturday" => "Saturday",
+                    "Sunday" => "Sunday"
+                ];
+                break;
+            case 'ru':
+                $dayweek = [
+                    "Понедельник" => "Понедельник",
+                    "Вторник" => "Вторник",
+                    "Среда" => "Среда",
+                    "Четверг" => "Четверг",
+                    "Пятница" => "Пятница",
+                    "Суббота" => "Суббота",
+                    "Воскресенье" => "Воскресенье"
+                ];
+                break;
+            case 'kz':
+                $dayweek = [
+                    "Дүйсенбі" => "Дүйсенбі",
+                    "Сейсенбі" => "Сейсенбі",
+                    "Сәрсенбі" => "Сәрсенбі",
+                    "Бейсенбі" => "Бейсенбі",
+                    "Жұма" => "Жұма",
+                    "Сенбі" => "Сенбі",
+                    "Жексенбі" => "Жексенбі"
+                ];
+                break;
+        }
+        return $dayweek;
+    }
+
+    public static function getLang()
+    {
+        switch (LaravelLocalization::getCurrentLocale()) {
+            case 'en':
+                $lang = 'English';
+                break;
+            case 'ru':
+                $lang = 'Русский';
+                break;
+            case 'kz':
+                $lang = 'Қазақ';
+                break;
+        }
+        return $lang;
+    }
 }

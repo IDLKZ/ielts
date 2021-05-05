@@ -120,7 +120,15 @@
         tags: true,
     })
 </script>
+<script type="text/javascript">
+    $(function () {
+        $('.timepicker').datetimepicker({
+            format : 'HH:mm'
+        });
+        $('.select2').select2();
+    });
 
+</script>
 @yield('third_party_scripts')
 
 @stack('page_scripts')

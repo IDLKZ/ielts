@@ -55,7 +55,16 @@ return [
     "teacher_subtitle" => " біздің мектептің мұғалімдері-нағыз кәсіпқойлар",
     "send"=> " жіберу",
 
-    "contact_us" => "Бізбен байланыс"
+    "contact_us" => "Бізбен байланыс",
+    'schedule_title' => 'Кесте',
 
+    'schedules_weekday' => 'Апта күндері',
+    'schedules_start' => 'Басталуы',
+    'schedules_end' => 'Аяқталуы',
+    'schedules_title' => 'Тақырыпша',
+    'schedules_type' => 'Түрі',
+    'schedules_coachers' => 'Мұғалім',
+
+    'not_found' => 'Ештеңе табылмады'
 ];
 
