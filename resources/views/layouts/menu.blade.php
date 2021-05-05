@@ -58,6 +58,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('schedules.index') }}"
+       class="nav-link {{ Request::is('schedules*') ? 'active' : '' }}">
+        <i class="fas fa-calendar"></i>
+        <p>{{__('frontend.menu_schedule')}}</p>
+    </a>
+</li>
 
 <li class="nav-item">
     <a href="{{ route('teachers.index') }}"
@@ -182,11 +189,6 @@
 </li>
 
 
-<li class="nav-item">
-    <a href="{{ route('schedules.index') }}"
-       class="nav-link {{ Request::is('schedules*') ? 'active' : '' }}">
-        <p>Schedules</p>
-    </a>
-</li>
+
 
 
