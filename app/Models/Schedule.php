@@ -84,24 +84,22 @@ class Schedule extends Model
     }
 
     public static function getSchedule(){
-        $schedules = Schedule::where('language_id', Language::getLanguage())->orderBy('start',"asc")->get();
-        if (LaravelLocalization::getCurrentLocale() == 'en') {
+        $schedules = Schedule::orderBy('start',"asc")->get()->toArray();
+//        if (LaravelLocalization::getCurrentLocale() == 'en') {
             $dayweek = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-        }
-        if (LaravelLocalization::getCurrentLocale() == 'ru') {
-            $dayweek = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
-        }
-        if (LaravelLocalization::getCurrentLocale() == 'kz') {
-            $dayweek = ["Дүйсенбі","Сейсенбі","Сәрсенбі","Бейсенбі","Жұма","Сенбі","Жексенбі"];
-        }
+//        }
+//        if (LaravelLocalization::getCurrentLocale() == 'ru') {
+//            $dayweek = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+//        }
+//        if (LaravelLocalization::getCurrentLocale() == 'kz') {
+//            $dayweek = ["Дүйсенбі","Сейсенбі","Сәрсенбі","Бейсенбі","Жұма","Сенбі","Жексенбі"];
+//        }
         $data=[];
         if (count($schedules)>0){
-            foreach ($dayweek as $day){
-                $i = 0;
+            foreach ($dayweek as $day) {
                 foreach ($schedules as $schedule){
-                    $i++;
-                    if($schedule["weekday"] == $day){
-                        $data[$day][$i] = $schedule;
+                    if ($schedule['weekday'] == $day) {
+                        $data[$schedule['start']][$day] = $schedule;
                     }
                 }
             }

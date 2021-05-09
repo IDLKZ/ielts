@@ -1,7 +1,7 @@
 <!-- Weekday Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('weekday', 'День недели:') !!}
-    {!! Form::select('weekday', [\App\Models\Language::getDays()],null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::select('weekday', ["Monday" => 'Monday',"Tuesday" => 'Tuesday',"Wednesday" => 'Wednesday',"Thursday" => 'Thursday',"Friday" => 'Friday',"Saturday" => 'Saturday',"Sunday" => 'Sunday'], null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Start Field -->
@@ -34,4 +34,4 @@
     {!! Form::text('type', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
-<input type="hidden" name="language_id" value="{{\App\Models\Language::getLanguage()}}">
+<input type="hidden" name="language_id" value="2">

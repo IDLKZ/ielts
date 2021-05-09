@@ -153,6 +153,17 @@ class FrontendController extends Controller
     {
         $schedules = Schedule::getSchedule();
         $header =  Header::where(["language_id"=>Language::getLanguage(),"page"=>"schedule"])->orderBy("created_at","desc")->first();
+//        $count = [];
+//        foreach ($schedules as $day => $schedule) {
+//            $count[] = count($schedule);
+//        }
+//        sort($count, SORT_NUMERIC);
+//        $count = array_pop($count);
+        ksort($schedules, SORT_REGULAR);
+//        dd($schedules);
+//        foreach ($schedules as $schedule) {
+//            dd($schedule);
+//        }
         return view('frontend.schedule', compact('schedules', 'header'));
     }
 

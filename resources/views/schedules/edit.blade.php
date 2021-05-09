@@ -14,18 +14,18 @@
     <div class="content px-3">
 
         @include('adminlte-templates::common.errors')
-        <div class="dropdown mb-4">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{\App\Models\Language::getLang()}}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                        {{ $properties['native'] }}
-                    </a>
-                @endforeach
-            </div>
-        </div>
+{{--        <div class="dropdown mb-4">--}}
+{{--            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                {{\App\Models\Language::getLang()}}--}}
+{{--            </button>--}}
+{{--            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+{{--                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+{{--                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
+{{--                        {{ $properties['native'] }}--}}
+{{--                    </a>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="card">
 
             {!! Form::model($schedule, ['route' => ['schedules.update', $schedule->id], 'method' => 'patch']) !!}
