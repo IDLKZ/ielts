@@ -135,7 +135,7 @@ class FrontendController extends Controller
     public function sendMessage(Request $request){
         $this->validate($request,["name"=>"required","email"=>"required|email","phone"=>"required"]);
 //        $emails = Email::pluck('email')->toArray();
-        $emails = 'nurbakit_5496@mail.ru';
+        $emails = ['nurbakit_5496@mail.ru', 'samgaacademy@inbox.ru'];
 //        if(count($emails)){
             Mail::to($emails)->send(new SendMessage($request->all()));
             return redirect()->route('main')

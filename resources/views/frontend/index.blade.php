@@ -259,7 +259,7 @@ Features Layout 1
 
 
                             </ul>
-                            <a href="{{route("my-prices")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
+                            <a href="{{route("main")}}#contact" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
                         </div>
                     </div>
                     <!-- END -->
