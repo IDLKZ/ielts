@@ -4,7 +4,12 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <style>
+        .blocker {
+            z-index: 10000!important;
+        }
+    </style>
 @endpush
 @section('content')
 {{--    Video First Slider--}}
@@ -259,7 +264,38 @@ Features Layout 1
 
 
                             </ul>
-                            <a href="{{route("main")}}#contact" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
+                            <a href="#ex{{$price->id}}" rel="modal:open" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
+                            <!-- Modal -->
+                            <!-- Modal HTML embedded directly into document -->
+                            <div id="ex{{$price->id}}" class="modal">
+                                <h5>{{$price->title}}</h5>
+                                <form action="{{route('send-modal')}}" method="post">
+                                    @csrf
+                                    <input type="text" class="form-control mb-2" name="name" placeholder="Name*">
+                                    <input type="text" class="form-control" name="phone" placeholder="Phone*">
+                                    <input type="hidden" class="form-control" name="title" value="{{$price->title}}">
+                                    <hr>
+                                    <div class="row justify-content-between">
+                                        <button type="submit" class="btn btn-primary small">{{__('frontend.send')}}</button>
+                                        <a class="btn btn-danger small" href="#" rel="modal:close">{{__('admin.cancel')}}</a>
+                                    </div>
+
+                                </form>
+                                <hr>
+
+                                <h6>{{__('frontend.contact_us')}}</h6>
+                                @if ($phones)
+                                    @foreach($phones as $phone)
+                                        <p>{{$phone->phone}}</p>
+                                    @endforeach
+                                @endif
+                                @if ($emails)
+                                    @foreach($emails as $email)
+                                        <p>{{$email->email}}</p>
+                                    @endforeach
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                     <!-- END -->
@@ -460,6 +496,7 @@ Features Layout 1
 
 @push("scripts")
     <script src="{{asset("/js/jquery.youtube-background.min.js")}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 {{--    <script src="{{asset("/js/jquery.lettering-0.6.1.min.js")}}"></script>--}}
 {{--    <script src="{{asset("/js/textillate.js")}}"></script>--}}
 {{--    <script src="{{asset('js/wow.js')}}"></script>--}}

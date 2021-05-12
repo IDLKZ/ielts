@@ -7,12 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMessage extends Mailable
+class SendModal extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $detail;
-
     /**
      * Create a new message instance.
      *
@@ -32,6 +31,6 @@ class SendMessage extends Mailable
     {
         return $this->from('support@samgaacademy.com')
             ->subject('Заявка с сайта')
-            ->markdown("mail.invite");
+            ->markdown("mail.modal");
     }
 }

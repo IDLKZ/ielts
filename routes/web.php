@@ -47,7 +47,8 @@ Route::group(
     Route::get("/contact",[FrontendController::class,"contact"])->name("contact");
 
     Route::post("/send-message",[FrontendController::class,"sendMessage"])->name("send-message");
-Route::get('/schedule', [FrontendController::class, 'schedule'])->name('schedule');
+    Route::post("/send-message-from-modal",[FrontendController::class,"sendModal"])->name("send-modal");
+    Route::get('/schedule', [FrontendController::class, 'schedule'])->name('schedule');
 
     Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
     Route::post("/auth",[\App\Http\Controllers\AuthController::class,"auth"])->name("auth");

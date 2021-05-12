@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMessage;
+use App\Mail\SendModal;
 use App\Models\About;
 use App\Models\Data;
 use App\Models\Email;
@@ -30,7 +31,9 @@ class FrontendController extends Controller
 
         $seo = Seo::orderBy("created_at","desc")->firstWhere(["page"=>"main","language_id"=>Language::getLanguage()]);
         $data = Data::main();
-        return view("frontend.index",compact("seo","data"));
+        $phones = Phone::all();
+        $emails = Email::all();
+        return view("frontend.index",compact("seo","data", 'phones', 'emails'));
     }
 
     public function about(){
@@ -136,15 +139,31 @@ class FrontendController extends Controller
         $this->validate($request,["name"=>"required","email"=>"required|email","phone"=>"required"]);
 //        $emails = Email::pluck('email')->toArray();
         $emails = ['nurbakit_5496@mail.ru', 'samgaacademy@inbox.ru'];
-//        if(count($emails)){
+        if(count($emails)){
             Mail::to($emails)->send(new SendMessage($request->all()));
             return redirect()->route('main')
                 ->with('success',__("messages.success"));
-//        }
-//        else{
-//            return redirect()->route('contact')
-//                ->with('fail',__("messages.failed"));
-//        }
+        }
+        else{
+            return redirect()->route('contact')
+                ->with('fail',__("messages.failed"));
+        }
+
+    }
+
+    public function sendModal(Request $request){
+        $this->validate($request,["name"=>"required","phone"=>"required"]);
+//        $emails = Email::pluck('email')->toArray();
+        $emails = ['nurbakit_5496@mail.ru', 'samgaacademy@inbox.ru'];
+        if(count($emails)){
+            Mail::to($emails)->send(new SendModal($request->all()));
+            return redirect()->route('main')
+                ->with('success',__("messages.success"));
+        }
+        else{
+            return redirect()->route('contact')
+                ->with('fail',__("messages.failed"));
+        }
 
     }
 
