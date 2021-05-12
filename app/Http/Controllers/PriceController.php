@@ -30,7 +30,9 @@ class PriceController extends AppBaseController
     public function index(Request $request)
     {
         $prices = $this->priceRepository->all();
-
+//        foreach ($prices as $price) {
+//            dd($price->benefits);
+//        }
         return view('prices.index')
             ->with('prices', $prices);
     }

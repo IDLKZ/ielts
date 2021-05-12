@@ -19,9 +19,9 @@
             <td>{{ $price->price }}</td>
             <td>{{ $price->currency }}</td>
             <td>
-                @foreach(json_decode($price->benefits) as $item)
-                    <p>{{$item}}</p>
-                @endforeach
+                    @foreach($price->benefits as $item)
+                        <p>{{$item}}</p>
+                    @endforeach
             </td>
             <td>{{ $price->subtitle }}</td>
                 <td width="120">
