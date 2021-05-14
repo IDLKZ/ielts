@@ -47,4 +47,14 @@
         </div>
     </div>
 @endsection
+@push('page_scripts')
+    <script type="text/javascript">
+        $(function () {
+            $('.timepicker').datetimepicker({
+                format : 'HH:mm'
+            });
+            $('.select2').select2();
+        });
 
+    </script>
+@endpush

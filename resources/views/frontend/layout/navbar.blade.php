@@ -83,29 +83,24 @@
 
 
                     </li><!-- /.nav-item -->
-                    <li class="nav__item  has-dropdown">
-                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_cabinet")}}</a>
-                        <ul class="dropdown-menu">
-                            @auth()
-                            <li class="nav__item">
-                                <a class="nav__item-link" href="{{route("home")}}">{{__("frontend.menu_cabinet")}}</a>
-                            </li><!-- /.nav-item -->
-                                <li class="nav__item">
-                                    <a class="nav__item-link" href="{{route("logout")}}">{{__("frontend.menu_logout")}}</a>
-                                </li><!-- /.nav-item -->
-                            @endauth
-                            @guest()
-                            <li class="nav__item">
-                                <a class="nav__item-link" href="{{route("login")}}">{{__("frontend.menu_login")}}</a>
-                            </li><!-- /.nav-item -->
-                                @endguest
-
-
-                        </ul><!-- /.dropdown-menu -->
-
-
-
-                    </li><!-- /.nav-item -->
+{{--                    <li class="nav__item  has-dropdown">--}}
+{{--                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("frontend.menu_cabinet")}}</a>--}}
+{{--                        <ul class="dropdown-menu">--}}
+{{--                            @auth()--}}
+{{--                            <li class="nav__item">--}}
+{{--                                <a class="nav__item-link" href="{{route("home")}}">{{__("frontend.menu_cabinet")}}</a>--}}
+{{--                            </li><!-- /.nav-item -->--}}
+{{--                                <li class="nav__item">--}}
+{{--                                    <a class="nav__item-link" href="{{route("logout")}}">{{__("frontend.menu_logout")}}</a>--}}
+{{--                                </li><!-- /.nav-item -->--}}
+{{--                            @endauth--}}
+{{--                            @guest()--}}
+{{--                            <li class="nav__item">--}}
+{{--                                <a class="nav__item-link" href="{{route("login")}}">{{__("frontend.menu_login")}}</a>--}}
+{{--                            </li><!-- /.nav-item -->--}}
+{{--                                @endguest--}}
+{{--                        </ul><!-- /.dropdown-menu -->--}}
+{{--                    </li><!-- /.nav-item -->--}}
                 </ul><!-- /.navbar-nav -->
             </div><!-- /.navbar-collapse -->
 

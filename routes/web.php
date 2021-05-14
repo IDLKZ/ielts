@@ -50,7 +50,7 @@ Route::group(
     Route::post("/send-message-from-modal",[FrontendController::class,"sendModal"])->name("send-modal");
     Route::get('/schedule', [FrontendController::class, 'schedule'])->name('schedule');
 
-    Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
+    Route::get("/kymbat",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
     Route::post("/auth",[\App\Http\Controllers\AuthController::class,"auth"])->name("auth");
     Route::get("/logout",[\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
 
