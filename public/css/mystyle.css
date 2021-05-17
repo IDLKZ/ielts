@@ -725,3 +725,11 @@ body{
     display: none;
 }
 
+
+
+
+
+.modal a.close-modal{
+    top: -5.5px!important;
+    right: -4.5px!important;
+}
