@@ -37,11 +37,11 @@
 
                 </div>
             </div>
-
+            @if($workdays->isNotEmpty())
             <div class="row py-4 my-4">
                 <div class="col-md-12">
                     <h3 class="text-dark" style="text-transform: none">{{__('frontend.schedule_title')}}</h3>
-                    @if($workdays->isNotEmpty())
+
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -69,16 +69,16 @@
                             </tbody>
                         </table>
 
-                    @endif
+
                 </div>
             </div>
-
-
+            @endif
+            @if($prices->isNotEmpty())
             <div class="row py-4 my-4">
                 <div class="col-md-12">
                     <h3 class="text-dark" style="text-transform: none">Услуги</h3>
                 </div>
-            @if($prices->isNotEmpty())
+
                 @foreach($prices as $price)
                         <!-- Pricing Table-->
                             <div class="col-md-4 mb-5 mb-lg-0" data-aos="zoom-in">
@@ -104,9 +104,9 @@
                             </div>
                             <!-- END -->
                         @endforeach
-                    @endif
-            </div>
 
+            </div>
+            @endif
         </div>
 
 @endsection
