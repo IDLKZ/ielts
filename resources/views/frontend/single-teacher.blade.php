@@ -3,7 +3,7 @@
     <style>
         @media only screen and (min-width: 768px) {
             .teacher-img {
-                position: absolute;width: 70%; height: 500px; z-index: 1000; top: -200px;
+                position: absolute;width: 100%; z-index: 1000; top: -200px;
             }
         }
     </style>
@@ -16,10 +16,10 @@
 
         <div class="container">
             <div class="row py-4 my-4">
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
                     <img class="teacher-img" src="{{$teacher->img}}">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h1 class="heading-1">
                         {{$teacher->name}}
                     </h1>
