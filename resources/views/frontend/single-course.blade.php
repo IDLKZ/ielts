@@ -7,17 +7,26 @@
 
         <div class="container">
             <div class="row py-4 my-4">
-                    <div class="col-md-12">
-                        <h1 class="heading-1">
-                            {{$course->title}}
-                        </h1>
-                        <p class="subheading-1">
-                            {{$course->subtitle}}
-                        </p>
-                        <img src="{{$course->img}}" width="100%">
-                        <div class="py-4">
-                            {!! $course->description !!}
+                    <div class="col-md-12 text-dark">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{$course->img}}" width="100%">
+                            </div>
+                            <div class="col-md-8">
+                                <h1 class="heading-1">
+                                    {{$course->title}}
+                                </h1>
+                                <p class="subheading-1 text-dark">
+                                    {{$course->subtitle}}
+                                </p>
+                                <div class="py-4 text-dark fs-18">
+                                    {!! $course->description !!}
+                                </div>
+                            </div>
                         </div>
+
+
+
 
                     </div>
             </div>

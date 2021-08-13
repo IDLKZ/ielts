@@ -53,7 +53,8 @@ Route::group(
     Route::get("/kymbat",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
     Route::post("/auth",[\App\Http\Controllers\AuthController::class,"auth"])->name("auth");
     Route::get("/logout",[\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
-
+    Route::get("/security",[FrontendController::class,"security"])->name("security");
+    Route::get("/documents",[FrontendController::class,"document"])->name("document");
 
 
 
@@ -108,3 +109,11 @@ Route::post('ckeditor/upload', [ContentController::class,"upload"])->name('ckedi
 
 
 
+
+
+Route::resource('securities', App\Http\Controllers\SecurityController::class);
+
+Route::resource('documents', App\Http\Controllers\DocumentController::class);
+
+
+Route::resource('workdays', App\Http\Controllers\WorkdayController::class);

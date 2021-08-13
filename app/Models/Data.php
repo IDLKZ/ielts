@@ -17,7 +17,7 @@ class Data extends Model
         $data["about"] = About::orderBy('created_at', 'asc')->firstWhere(["language_id"=>Language::getLanguage()]);
         $data["advantages"] = Advantage::where("language_id", Language::getLanguage())->get();
         $data["reviews"] = Review::where("language_id", Language::getLanguage())->get();
-        $data["prices"] = Price::where("language_id", Language::getLanguage())->get();
+        $data["prices"] = Price::count()>3 ? Price::where("language_id", Language::getLanguage())->where("teacher_id",null)->take(3)->get() : Price::where("language_id", Language::getLanguage())->where("teacher_id",null)->get();
         $data["services"] = Service::count() >= 3 ? Service::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->take(3)->get() : Service::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->get();
         $data["news"] = News::count() >= 3 ? News::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->take(3)->get() : News::orderBy('created_at', 'asc')->where("language_id", Language::getLanguage())->get();
         $data["headers"]["main"] = Header::orderBy("created_at","desc")->where("language_id", Language::getLanguage())->firstWhere("page","main");

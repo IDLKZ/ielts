@@ -15,7 +15,7 @@
                     <h6 class="footer-widget__title">{{__("frontend.menu_about")}}</h6>
                     <div class="footer-widget__content">
                         <nav>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled text-dark">
                                 <li><a href="{{route("about")}}">{{__("frontend.menu_who_we_are")}}</a></li>
                                 <li><a href="{{route("teacher")}}">{{__("frontend.menu_teachers")}}</a></li>
                                 <li><a href="{{route("gallery")}}">{{__("frontend.menu_gallery")}}</a></li>
@@ -28,25 +28,24 @@
                     <h6 class="footer-widget__title">{{__("frontend.menu_service")}}</h6>
                     <div class="footer-widget__content">
                         <nav>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled text-dark">
                                 <li><a href="{{route("course")}}">{{__("frontend.menu_service")}}</a></li>
                                 <li><a href="{{route("my-ielts")}}">{{__("frontend.menu_ielts")}}</a></li>
                             </ul>
                         </nav>
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-2 -->
-                <div class="col-sm-6 col-md-8 col-lg-3 footer-widget">
-                    <h6 class="footer-widget__title">Newsletter</h6>
+                <div class="col-sm-6 col-md-8 col-lg-5 footer-widget">
+                    <h6 class="footer-widget__title">Наши контакты</h6>
                     <div class="footer-widget__content">
                         <form class="footer-form">
-                            <div class="form-group mb-20">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
-                                <button type="submit" class="footer-form__submit"><i class="icon-arrow-right"></i></button>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-20">
-                                <input type="checkbox" class="custom-control-input" id="terms">
-                                <label class="custom-control-label" for="terms">I accept the privacy and terms.</label>
-                            </div>
+                           <div class="text-dark">
+                               ИП «Советова», Омарова 174, Z00Y2M3, г.Нур-Султан, Казахстан.
+                               <br>
+                               Администратор: Советова Кымбат Кайратовна, ИИН 971106451080,
+                               <br>
+                               WhatsApp: +77082590411, Instagram:@samgaacademy
+                           </div>
                         </form>
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-3 -->

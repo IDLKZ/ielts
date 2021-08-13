@@ -27,12 +27,12 @@
                     {{$data["background"]->subtitle}}
                 </p>
                 <div>
-                    <a href="{{route("about")}}" class="btn btn__primary mr-30">
-                          {{__("frontend.about_title")}}
-                        <i class="fas fa-building"></i>
+                    <a href="{{route("teacher")}}" class="btn btn__primary mr-30">
+                          {{__("frontend.teachers")}}
+                        <i class="fas fa-users"></i>
                     </a>
-                    <a href="{{route("my-ielts")}}" class="btn btn__white">
-                        {{__("frontend.menu_ielts")}}
+                    <a href="{{route("course")}}" class="btn btn__white">
+                        {{__("frontend.services")}}
                         <i class="fas fa-book"></i>
                     </a>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="service-item wow bounceInUp">
                         <div class="service__content text-center">
                             <div class="service__icon">
-                                <div class="bg-mini-circle blue-bg d-flex align-self-center my-2 bg-content"
+                                <div class="bg-mini-circle border-info-solid d-flex align-self-center my-2 bg-content"
                                      style="background-image: url('{{$ielts->img}}'); background-size: cover; margin: auto"
                                 ></div>
                             </div><!-- /.service__icon -->
@@ -164,7 +164,7 @@
                     <img src="assets/images/about/2.jpg" alt="about">
                 </div>
             </div><!-- /.col-lg-6 -->
-            <div class="col-sm-12 col-md-12 col-lg-6 d-flex flex-column justify-content-between">
+            <div class="col-sm-12 col-md-12 col-lg-6 d-flex flex-column">
                 @if (!is_null($data['about']))
                     {!! $data["about"]->description !!}
                 @endif

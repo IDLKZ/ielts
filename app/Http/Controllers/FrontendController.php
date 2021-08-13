@@ -6,6 +6,7 @@ use App\Mail\SendMessage;
 use App\Mail\SendModal;
 use App\Models\About;
 use App\Models\Data;
+use App\Models\Document;
 use App\Models\Email;
 use App\Models\Faq;
 use App\Models\Gallery;
@@ -16,10 +17,12 @@ use App\Models\News;
 use App\Models\Phone;
 use App\Models\Price;
 use App\Models\Schedule;
+use App\Models\Security;
 use App\Models\Seo;
 use App\Models\Service;
 use App\Models\Social;
 use App\Models\Teacher;
+use App\Models\Workday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Laracasts\Flash\Flash;
@@ -53,7 +56,9 @@ class FrontendController extends Controller
     public function teacherInfo($alias){
         if($teacher = Teacher::firstWhere("alias",$alias)){
             $seo = Seo::orderBy("created_at","desc")->firstWhere(["page"=>"teacher","language_id"=>Language::getLanguage()]);
-            return view("frontend.single-teacher",compact("teacher","seo"));
+            $workdays = Workday::where("teacher_id",$teacher->id)->with("weekday")->get();
+            $prices = Price::where("teacher_id",$teacher->id)->get();
+            return view("frontend.single-teacher",compact("teacher","seo","workdays","prices"));
         }
         else{
             abort(404);
@@ -165,6 +170,16 @@ class FrontendController extends Controller
                 ->with('fail',__("messages.failed"));
         }
 
+    }
+
+    public function security(){
+        $security = Security::latest()->first();
+        return view("frontend.security",compact("security"));
+    }
+
+    public function document(){
+        $documents = Document::all();
+        return view("frontend.document",compact("documents"));
     }
 
 

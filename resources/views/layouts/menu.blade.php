@@ -168,7 +168,29 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('securities.index') }}"
+       class="nav-link {{ Request::is('securities*') ? 'active' : '' }}">
+        <i class="fas fa-handshake"></i>
+        <p>{{__("admin.securities")}}</p>
+    </a>
+</li>
 
+<li class="nav-item">
+    <a href="{{ route('documents.index') }}"
+       class="nav-link {{ Request::is('documents*') ? 'active' : '' }}">
+        <i class="fas fa-file-pdf"></i>
+        <p>Документы</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('workdays.index') }}"
+       class="nav-link {{ Request::is('workdays*') ? 'active' : '' }}">
+        <i class="fas fa-calendar"></i>
+        <p>{{__("admin.workdays")}}</p>
+    </a>
+</li>
 
 
 <li class="nav-item">
@@ -187,6 +209,15 @@
         <p>Выход</p>
     </a>
 </li>
+
+
+
+
+
+
+
+
+
 
 
 

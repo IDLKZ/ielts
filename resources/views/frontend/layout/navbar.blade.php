@@ -58,6 +58,23 @@
 
 
                     </li><!-- /.nav-item -->
+                    <li class="nav__item  has-dropdown">
+                        <a href="#" data-toggle="dropdown"  class="nav__item-link dropdown-toggle">{{__("admin.security")}}</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav__item">
+                                <a class="nav__item-link" href="{{route("security")}}">{{__("admin.security")}}</a>
+                            </li><!-- /.nav-item -->
+                            <li class="nav__item">
+                                <a class="nav__item-link" href="{{route("document")}}">{{__("admin.documents")}}</a>
+                            </li><!-- /.nav-item -->
+
+
+
+                        </ul><!-- /.dropdown-menu -->
+
+
+
+                    </li><!-- /.nav-item -->
 {{--                    <li class="nav__item ">--}}
 {{--                        <a href="/"  class="{{ request()->routeIs('my-prices') ? 'active' : '' }} nav__item-link">{{__("frontend.menu_price")}}</a>--}}
 {{--                    </li><!-- /.nav-item -->--}}

@@ -66,5 +66,6 @@ return [
     'schedules_type' => 'Тип занятия',
     'schedules_coachers' => 'Тренера',
 
-    'not_found' => 'Ничего не найдено'
+    'not_found' => 'Ничего не найдено',
+    "teachers"=>"Учителя",
 ];

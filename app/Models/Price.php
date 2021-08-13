@@ -41,7 +41,8 @@ class Price extends Model
         'price',
         'currency',
         'benefits',
-        'subtitle'
+        'subtitle',
+        "teacher_id"
     ];
 
     /**
@@ -81,5 +82,10 @@ class Price extends Model
     public function language()
     {
         return $this->belongsTo(\App\Models\Language::class, 'language_id');
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(\App\Models\Teacher::class, 'teacher_id');
     }
 }

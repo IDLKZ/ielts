@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>{{__("validation.attributes.language_id")}}</th>
+                <th>{{__("admin.teachers")}}</th>
         <th>{{__("validation.attributes.title")}}</th>
         <th>{{__("admin.price")}}</th>
         <th>{{__("validation.attributes.currency")}}</th>
@@ -15,6 +16,7 @@
         @foreach($prices as $price)
             <tr>
                 <td>{{ $price->language->title }}</td>
+                <td>{{$price->teacher_id ? $price->teacher->name : "-"}}</td>
             <td>{{ $price->title }}</td>
             <td>{{ $price->price }}</td>
             <td>{{ $price->currency }}</td>

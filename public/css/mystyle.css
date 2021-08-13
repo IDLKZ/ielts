@@ -175,6 +175,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.border-info-solid{
+    border:1px solid #29a9bd;
+}
+
 .bg-parallax{
     background-attachment: fixed;
     background-position: center;
@@ -321,6 +326,7 @@ body{
     position: relative;
     margin: 10px auto;
     cursor: pointer;
+    min-height: 400px;
 }
 
 .profile-card-6 img {

@@ -24,8 +24,7 @@
                 @if($teachers->isNotEmpty())
                     @foreach($teachers as $teacher)
                 <div class="col-md-4 my-2" >
-                    <div class="profile-card-6" data-alias = "{{$teacher->alias}}">
-                        <img src="{{$teacher->img}}" class="img img-responsive" height="400">
+                    <div style="background: url({{$teacher->img}}); background-size: cover; background-repeat: no-repeat;background-position: center" class="profile-card-6" data-alias = "{{$teacher->alias}}">
                         <div class="profile-name">{{$teacher->name}}</div>
                         <div class="profile-position">{{$teacher->position}}</div>
                     </div>

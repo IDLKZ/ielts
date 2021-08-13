@@ -4,6 +4,12 @@
     {!! Form::select('language_id', \App\Models\Language::pluck("title","id") ,null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Teacher Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('teacher_id', __("admin.teachers")) !!}
+    {!! Form::select('teacher_id', \App\Models\Teacher::pluck("name","id"),null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('title', __("validation.attributes.title")) !!}

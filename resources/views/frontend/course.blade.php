@@ -30,8 +30,8 @@
                                 ></div>
                             </div>
                             <div class="text-center my-2">
-                                <p class="fs-18 font-weight-bolder">{{$course->title}}</p>
-                                <p>{{$course->subtitle}}</p>
+                                <p class="fs-18 font-weight-bolder text-dark">{{$course->title}}</p>
+                                <p class="text-dark">{{strlen($course->subtitle)> 80 ? mb_substr($course->subtitle,0,80) . "..." : $course->subtitle}}</p>
                                 <a href="{{route("courseSingle",$course->title)}}" class="btn btn-md my-btn-blue my-btn text-uppercase fs-18 font-weight-bolder text-white">
                                     {{__("frontend.info")}}
                                 </a>
