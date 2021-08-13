@@ -37,15 +37,15 @@
 
                 @if($ielts->isNotEmpty())
                   @foreach($ielts as $item)
-                    <div class="row my-4 aqua-gradient py-4">
-                      <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="row my-4 py-4">
+                      <div class="col-md-4 d-flex justify-content-center align-items-center">
                           <img src="{{$item->img}}" width="100%">
                       </div>
-                      <div class="col-md-6 text-white">
+                      <div class="col-md-8 text-white">
                             <h1 class="heading-1">
                                 {{$item->title}}
                             </h1>
-                            <div class="text-white">
+                            <div class="text-dark">
                                 {!! $item->description !!}
                             </div>
                       </div>
