@@ -5,7 +5,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-3 footer-widget footer-widget-about">
                     <div class="footer-widget__content">
                         @if($logo)
-                            <img src="{{asset($logo->img)}}"  height="40px" alt="logo" class="mb-30">
+                            <img src="{{asset($logo->img)}}"  height="150px" alt="logo" class="mb-30">
                         @else
                             <img src="{{asset("/logo.png")}}"  height="40px" alt="logo" class="mb-30">
                         @endif
@@ -70,16 +70,6 @@
                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     </ul><!-- /.social-icons -->
-                    <div>
-                        <a href="javascript:void (0)" class="btn btn__white btn__download mr-20">
-                            <i class="fab fa-apple"></i>
-                            <span>App Store</span>
-                        </a>
-                        <a href="javascript:void (0)" class="btn btn__white btn__download">
-                            <i class="fab fa-google-play"></i>
-                            <span>Google Play</span>
-                        </a>
-                    </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div><!-- /.container -->

@@ -4,7 +4,7 @@
 
             <a class="navbar-brand" href="/">
                 @if($logo)
-                    <img src="{{asset($logo->img)}}"  height="40px">
+                    <img src="{{asset($logo->img)}}"  height="110px">
                 @else
                     <img src="{{asset("/logo.png")}}"  height="40px">
                 @endif
