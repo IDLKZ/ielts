@@ -17,7 +17,7 @@ class FileUpload extends Model
     public static function createFile($request,$file,$directory,$isReq,$filename=null){
         if ($request->has($file)){
             $File = $request->file($file);
-            $fullname = ($filename == null ? Str::random(10) . "."  : Str::slug($filename) . Str::random(10)) . "." . $File->getClientOriginalExtension();
+            $fullname =  Str::random(10) ."." . $File->getClientOriginalExtension();
             $File->storeAs($directory,$fullname);
             return $directory . $fullname;
         }
