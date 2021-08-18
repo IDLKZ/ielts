@@ -56,7 +56,7 @@ class TeacherController extends AppBaseController
     public function store(CreateTeacherRequest $request)
     {
         $input = $request->all();
-        $input["img"] = FileUpload::createFile($request,"img","/uploads/teachers/",true,$request->title);
+        $input["img"] = FileUpload::createFile($request,"img","/uploads/teachers/",true);
 
         $teacher = $this->teacherRepository->create($input);
 

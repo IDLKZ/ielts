@@ -15,11 +15,12 @@ class FileUpload extends Model
 
 
     public static function createFile($request,$file,$directory,$isReq,$filename=null){
+
         if ($request->has($file)){
             $File = $request->file($file);
             $fullname =  Str::random(10) ."." . $File->getClientOriginalExtension();
-            $File->storeAs($directory,$fullname);
-            return $directory . $fullname;
+            $File->storeAs("/uploads/",$fullname);
+            return "/uploads/" . $fullname;
         }
         else{
             if($isReq){
