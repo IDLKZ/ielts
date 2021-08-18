@@ -57,7 +57,7 @@ class Footer extends Model
      */
     public static $rules = [
         'language_id' => 'required',
-        'img' => 'required|image|max:4096',
+        'img' => 'required|image|max:100000',
         'title' => 'required|string|max:500',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

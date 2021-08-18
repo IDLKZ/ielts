@@ -65,7 +65,7 @@ class Ielts extends Model
     public static $rules = [
         'title' => 'required|string|max:255',
         'language_id' => 'required',
-        'img' => 'required|image|max:4096|file',
+        'img' => 'required|image|max:100000|file',
         'description' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

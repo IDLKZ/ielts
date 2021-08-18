@@ -49,7 +49,7 @@ class Logo extends Model
      * @var array
      */
     public static $rules = [
-        'img' => 'required|file|max:4096',
+        'img' => 'required|file|max:100000',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

@@ -69,7 +69,7 @@ class Teacher extends Model
         'language_id' => 'required',
         'name' => 'required|string|max:255',
         'position' => 'required|string|max:255',
-        'img' => 'required|file|max:4096|image',
+        'img' => 'required|file|max:100000|image',
         'description' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

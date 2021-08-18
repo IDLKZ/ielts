@@ -62,7 +62,7 @@ class Advantage extends Model
         'language_id' => 'required',
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
-        'img' => 'required|image|max:4096',
+        'img' => 'required|image|max:100000',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

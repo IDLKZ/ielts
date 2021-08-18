@@ -67,7 +67,7 @@ class News extends Model
      */
     public static $rules = [
         'language_id' => 'required',
-        'img' => 'required|file|max:4096|image',
+        'img' => 'required|file|max:100000|image',
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
         'content' => 'required|string',
