@@ -16,3 +16,8 @@
     <p>{{ $footer->title }}</p>
 </div>
 
+<!-- Description Field -->
+<div class="col-sm-12">
+    {!! Form::label('description', __("admin.description")) !!}
+    <p>{!! $footer->description !!}  </p>
+</div>

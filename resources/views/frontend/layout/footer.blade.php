@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-3 footer-widget footer-widget-about">
                     <div class="footer-widget__content">
-                        @if($logo)
-                            <img src="{{asset($logo->img)}}"  height="150px" alt="logo" class="mb-30">
+                        @if($footer)
+                            <img src="{{asset($footer->img)}}"  height="150px" alt="logo" class="mb-30">
                         @else
                             <img src="{{asset("/logo.png")}}"  height="40px" alt="logo" class="mb-30">
                         @endif
@@ -36,11 +36,21 @@
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-2 -->
                 <div class="col-sm-6 col-md-8 col-lg-5 footer-widget">
+                    @if($footer)
+                        <h6 class="footer-widget__title">{{$footer->title}}</h6>
+                        <div class="footer-widget__content">
+                            <form class="footer-form">
+                                <div class="text-gray">
+                                   {!! $footer->description !!}
+                                </div>
+                            </form>
+                        </div><!-- /.footer-widget__content -->
+                    @else
                     <h6 class="footer-widget__title">Наши контакты</h6>
                     <div class="footer-widget__content">
                         <form class="footer-form">
                            <div class="text-dark">
-                               ИП «Советова», Омарова 174, Z00Y2M3, г.Нур-Султан, Казахстан.
+                               ИП «Samga Academy», Омарова 174, Z00Y2M3, г.Нур-Султан, Казахстан.
                                <br>
                                Администратор: Советова Кымбат Кайратовна, ИИН 971106451080,
                                <br>
@@ -48,6 +58,7 @@
                            </div>
                         </form>
                     </div><!-- /.footer-widget__content -->
+                    @endif
                 </div><!-- /.col-lg-3 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
@@ -66,9 +77,8 @@
                 </div><!-- /.col-lg-2 -->
                 <div class="col-sm-12 col-md-5 col-lg-5 d-flex flex-wrap justify-content-end align-items-center">
                     <ul class="social-icons list-unstyled mb-0 mr-30">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a target="_blank" href="https://wa.me/+77082590411"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/samgaacademy/"><i class="fab fa-instagram"></i></a></li>
                     </ul><!-- /.social-icons -->
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->

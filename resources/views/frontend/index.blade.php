@@ -9,6 +9,7 @@
         .blocker {
             z-index: 10000!important;
         }
+
     </style>
 @endpush
 @section('content')
@@ -222,119 +223,6 @@ Features Layout 1
 
 
 {{--Sixth Section--}}
-<section class="my-section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center" data-aos="zoom-in">
-                @if($data["headers"]["price"])
-                    <h1 class="heading-1 blue-text">
-                        {{$data["headers"]["price"]["title"]}}
-                    </h1>
-                    <p class="subheading-1">
-                        {{$data["headers"]["price"]["subtitle"]}}
-                    </p>
-                @else
-                    <h1 class="heading-1 blue-text">
-                        {{__("frontend.price_title")}}
-                    </h1>
-                    <p class="subheading-1">
-                        {{__("frontend.price_subtitle")}}
-                    </p>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-        @if($data["prices"]->isNotEmpty())
-            @foreach($data["prices"] as $price)
-                <!-- Pricing Table-->
-                    <div class="col-md-4 mb-5 mb-lg-0" data-aos="zoom-in">
-                        <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h2 text-uppercase font-weight-bold mb-4">{{$price->title}}</h1>
-                            <h2 class="h1 font-weight-bold">{{$price->price}} {{$price->currency}}<span class="text-small font-weight-normal ml-2">/ {{$price->subtitle}}</span></h2>
-
-                            <div class="custom-separator my-4 mx-auto bg-primary"></div>
-
-                            <ul class="list-unstyled my-5 text-small text-left">
-                                @foreach($price->benefits as $benefit)
-                                    <li class="mb-3">
-                                        <i class="fa fa-check mr-2 text-primary"></i>
-                                        {{$benefit}}
-                                    </li>
-                                @endforeach
-
-
-                            </ul>
-                            <a href="#ex{{$price->id}}" rel="modal:open" class="btn btn-primary btn-block p-2 shadow rounded-pill">{{__("frontend.info")}}</a>
-                            <!-- Modal -->
-                            <!-- Modal HTML embedded directly into document -->
-                            <div id="ex{{$price->id}}" class="modal">
-                                <h5>{{$price->title}}</h5>
-                                <form action="{{route('send-modal')}}" method="post">
-                                    @csrf
-                                    <input type="text" class="form-control mb-2" name="name" placeholder="Name*">
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone*">
-                                    <input type="hidden" class="form-control" name="title" value="{{$price->title}}">
-                                    <hr>
-                                    <div class="row justify-content-between">
-                                        <button type="submit" class="btn btn-primary small">{{__('frontend.send')}}</button>
-                                        <a class="btn btn-danger small" href="#" rel="modal:close">{{__('admin.cancel')}}</a>
-                                    </div>
-
-                                </form>
-                                <hr>
-
-                                <h6>{{__('frontend.contact_us')}}</h6>
-                                @if ($phones)
-                                    @foreach($phones as $phone)
-                                        <p>{{$phone->phone}}</p>
-                                    @endforeach
-                                @endif
-                                @if ($emails)
-                                    @foreach($emails as $email)
-                                        <p>{{$email->email}}</p>
-                                    @endforeach
-                                @endif
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END -->
-            @endforeach
-        @else
-            @for($i = 0; $i<3; $i++)
-                <!-- Pricing Table-->
-                    <div class="col-md-4 mb-5 mb-lg-0" data-aos="zoom-in">
-                        <div class="bg-white p-5 rounded-lg shadow">
-                            <h1 class="h2 text-uppercase font-weight-bold mb-4">Basic</h1>
-                            <h2 class="h1 font-weight-bold">$199<span class="text-small font-weight-normal ml-2">/ month</span></h2>
-
-                            <div class="custom-separator my-4 mx-auto bg-primary"></div>
-
-                            <ul class="list-unstyled my-5 text-small text-left">
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> Sed ut perspiciatis</li>
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-                                <li class="mb-3">
-                                    <i class="fa fa-check mr-2 text-primary"></i> At vero eos et accusamus</li>
-
-                            </ul>
-                            <a href="{{route("my-prices")}}" class="btn btn-primary btn-block p-2 shadow rounded-pill">Subscribe</a>
-                        </div>
-                    </div>
-                    <!-- END -->
-                @endfor
-            @endif
-        </div>
-    </div>
-
-</section>
 {{--    End of Sixth Section--}}
 
 <section class="blog-grid pb-50">
@@ -430,30 +318,6 @@ Features Layout 1
                     </div><!-- /.slcik-nav -->
                 </div><!-- /.testimonials -->
                 <div class="divider divider-light w-100 mt-60 mb-60"></div>
-                <div class="heading heading-light">
-                    <h3 class="heading__title mb-30">Our Trusted Clients</h3>
-                </div>
-                <div class="clients">
-                    <div class="slick-carousel"
-                         data-slick='{"slidesToShow": 4, "arrows": false, "dots": false, "autoplay": true,"autoplaySpeed": 2000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 3}}, {"breakpoint": 767, "settings": {"slidesToShow": 3}}, {"breakpoint": 480, "settings": {"slidesToShow": 2}}]}'>
-                        <div class="client">
-                            <img src="assets/images/clients/1.png" alt="client">
-                            <img src="assets/images/clients/1.png" alt="client">
-                        </div><!-- /.client -->
-                        <div class="client">
-                            <img src="assets/images/clients/2.png" alt="client">
-                            <img src="assets/images/clients/2.png" alt="client">
-                        </div><!-- /.client -->
-                        <div class="client">
-                            <img src="assets/images/clients/3.png" alt="client">
-                            <img src="assets/images/clients/3.png" alt="client">
-                        </div><!-- /.client -->
-                        <div class="client">
-                            <img src="assets/images/clients/4.png" alt="client">
-                            <img src="assets/images/clients/4.png" alt="client">
-                        </div><!-- /.client -->
-                    </div><!-- /.carousel -->
-                </div>
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                 <div class="contact-panel">
@@ -465,7 +329,7 @@ Features Layout 1
                             </div> <!-- /.col-12 -->
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name" id="contact-name" name="name"
+                                    <input type="text" class="form-control" placeholder="ФИО" id="contact-name" name="name"
                                            required>
                                 </div>
                             </div><!-- /.col-lg-6 -->
@@ -477,7 +341,7 @@ Features Layout 1
                             </div><!-- /.col-lg-6 -->
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
+                                    <input type="text" class="form-control" placeholder="Телефон" id="contact-Phone"
                                            name="phone">
                                 </div>
                             </div><!-- /.col-lg-6 -->

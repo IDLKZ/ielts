@@ -30,7 +30,18 @@
 
                     </div>
             </div>
-
+            <div class="row py-4 my-4">
+                @if($course->teachers->isNotEmpty())
+                    @foreach($course->teachers as $teacher)
+                        <div class="col-md-4 my-2" >
+                            <div style="background: url({{$teacher->img}}); background-size: cover; background-repeat: no-repeat;background-position: center" class="profile-card-6" data-alias = "{{$teacher->alias}}">
+                                <div class="profile-name">{{$teacher->name}}</div>
+                                <div class="profile-position">{{$teacher->position}}</div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
 
 @endsection

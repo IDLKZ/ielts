@@ -177,6 +177,14 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ route('privicies.index') }}"
+       class="nav-link {{ Request::is('privicies*') ? 'active' : '' }}">
+        <i class="fas fa-file"></i>
+        <p>Privacy Policy</p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{ route('documents.index') }}"
        class="nav-link {{ Request::is('documents*') ? 'active' : '' }}">
         <i class="fas fa-file-pdf"></i>
@@ -209,6 +217,9 @@
         <p>Выход</p>
     </a>
 </li>
+
+
+
 
 
 

@@ -65,6 +65,9 @@
                                 <a class="nav__item-link" href="{{route("security")}}">{{__("admin.security")}}</a>
                             </li><!-- /.nav-item -->
                             <li class="nav__item">
+                                <a class="nav__item-link" href="{{route("privacy")}}">{{__("frontend.privacy_policy")}}</a>
+                            </li><!-- /.nav-item -->
+                            <li class="nav__item">
                                 <a class="nav__item-link" href="{{route("document")}}">{{__("admin.documents")}}</a>
                             </li><!-- /.nav-item -->
 

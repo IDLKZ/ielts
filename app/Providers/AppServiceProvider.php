@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Models\Footer;
+use App\Models\Language;
 use App\Models\Logo;
 use App\Models\Social;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Route;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with("socials",$socials);
         });
         \view()->composer("frontend.layout.footer",function ($view){
-            $footer = Footer::orderBy("created_at","desc")->first();
+            $footer = Footer::orderBy("created_at","desc")->where("language_id",Language::getLanguage())->first();
             $view->with("footer",$footer);
         });
         \view()->composer("frontend.layout.footer",function ($view){

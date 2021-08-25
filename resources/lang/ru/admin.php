@@ -29,6 +29,7 @@ return[
     "title_ru"=>"Заголовок на русском",
     "title_kz"=>"Заголовок на казахском",
     "title_en"=>"Заголовок на английском",
+    'description'=>"Описание",
     "description_ru"=>"Описание на русском",
     "description_kz"=>"Описание на казахском",
     "description_en"=>"Описание на английском",
@@ -40,7 +41,9 @@ return[
     "date_start"=>"Дата начала",
     "date_end"=>"Дата конца",
     "time_start"=>"Время начала",
-    "time_end"=>"Время конца"
+    "time_end"=>"Время конца",
+    "language_id"=>"Язык",
+    "language"=>"Язык"
 
 
 

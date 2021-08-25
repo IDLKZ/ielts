@@ -99,4 +99,8 @@ class Workday extends Model
     {
         return $this->belongsTo(\App\Models\Weekday::class, 'weekday_id');
     }
+
+    public function pupils(){
+        return $this->hasMany(Pupil::class);
+    }
 }

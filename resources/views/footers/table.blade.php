@@ -5,6 +5,7 @@
                 <th>{{__("validation.attributes.language_id")}}</th>
         <th>{{__("validation.attributes.img")}}</th>
         <th>{{__("validation.attributes.title")}}</th>
+                <th>{{__("admin.description")}}</th>
                 <th colspan="3">{{__("admin.action")}}</th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
                 <td>{{ $footer->language->title }}</td>
             <td><img src="{{ $footer->img }}" height="40px"></td>
             <td>{{ $footer->title }}</td>
+                <td>{!! $footer->description !!}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['footers.destroy', $footer->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -15,3 +15,8 @@
     {!! Form::label('title', __("validation.attributes.title")) !!}
     {!! Form::text('title', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
 </div>
+<!-- Description Field -->
+<div class="form-group col-sm-12 col-lg-12">
+    {!! Form::label('description', __("admin.description")) !!}
+    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+</div>

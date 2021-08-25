@@ -140,40 +140,6 @@
                 </div>
                 <div class="col-lg-12 d-flex mt-2">
                     @if(count($schedules)>0)
-{{--                        <table class="table table-bordered table-responsive-md table-responsive-sm">--}}
-{{--                            <thead class="thead-dark">--}}
-{{--                            <tr>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_weekday')}}</th>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_start')}}</th>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_end')}}</th>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_title')}}</th>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_type')}}</th>--}}
-{{--                                <th scope="col">{{__('frontend.schedules_coachers')}}</th>--}}
-{{--                            </tr>--}}
-{{--                            </thead>--}}
-{{--                            <tbody>--}}
-{{--                            @foreach($schedules as $day => $schedule)--}}
-{{--                                <th class="thead-dark">--}}
-{{--                                    {{$day}}--}}
-{{--                                </th>--}}
-{{--                                @foreach($schedule as $item)--}}
-{{--                                    <tr>--}}
-{{--                                        <td>{{$loop->iteration}}</td>--}}
-{{--                                        <td>{{$item->start}}</td>--}}
-{{--                                        <td>{{$item->end}}</td>--}}
-{{--                                        <td>{{$item->title}}</td>--}}
-{{--                                        <td>{{$item->type}}</td>--}}
-{{--                                        <td>--}}
-{{--                                            @foreach(json_decode($item->coachers) as $coucher)--}}
-{{--                                                <p>{{ $coucher }}</p>--}}
-{{--                                            @endforeach--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                @endforeach--}}
-{{--                            @endforeach--}}
-{{--                            </tbody>--}}
-{{--                        </table>--}}
-
                         <div class="container">
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center">
@@ -199,9 +165,9 @@
                                                                         @endforeach
                                                                     </div>
                                                                 </td>
-                                                        @else
+                                                                @else
                                                                 <td></td>
-                                                        @endif
+                                                            @endif
                                                             @if (array_key_exists('Tuesday', $item))
                                                                     <td>
                                                                         <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">{{$item['Tuesday']['title']}}</span>

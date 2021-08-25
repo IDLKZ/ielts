@@ -2,40 +2,27 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Service
+ * Class Privicy
  * @package App\Models
- * @version March 30, 2021, 5:22 pm UTC
+ * @version August 24, 2021, 3:41 pm UTC
  *
  * @property \App\Models\Language $language
  * @property integer $language_id
- * @property string $img
  * @property string $title
- * @property string $subtitle
  * @property string $description
  */
-class Service extends Model
+class Privicy extends Model
 {
 //    use SoftDeletes;
 
     use HasFactory;
-    use Sluggable;
 
-    public function sluggable(): array
-    {
-        return [
-            'alias' => [
-                'source' => 'title'
-            ]
-        ];
-    }
-
-    public $table = 'services';
+    public $table = 'privicies';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -47,11 +34,8 @@ class Service extends Model
 
     public $fillable = [
         'language_id',
-        'img',
         'title',
-        'subtitle',
-        'description',
-        'alias'
+        'description'
     ];
 
     /**
@@ -62,9 +46,7 @@ class Service extends Model
     protected $casts = [
         'id' => 'integer',
         'language_id' => 'integer',
-        'img' => 'string',
         'title' => 'string',
-        'subtitle' => 'string',
         'description' => 'string'
     ];
 
@@ -75,9 +57,7 @@ class Service extends Model
      */
     public static $rules = [
         'language_id' => 'required',
-        'img' => 'required|file|max:100000|image',
         'title' => 'required|string|max:255',
-        'subtitle' => 'required|string|max:255',
         'description' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
@@ -89,23 +69,5 @@ class Service extends Model
     public function language()
     {
         return $this->belongsTo(\App\Models\Language::class, 'language_id');
-    }
-
-    public function serviceTeacher()
-    {
-        return $this->hasMany(ServiceTeacher::class,"service_id");
-    }
-
-    public function teachers(){
-        return $this->hasManyThrough(
-            Teacher::class,
-            ServiceTeacher::class,
-            "service_id",
-            "id",
-            "id",
-            "teacher"
-        );
-
-
     }
 }

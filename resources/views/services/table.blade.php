@@ -24,6 +24,9 @@
                         <a href="{{ route('services.show', [$service->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
+                        <a href="{{ route('service-teacher.index', ['service_id'=>$service->id]) }}" class='btn btn-default btn-xs'>
+                            <i class="fas fa-user-plus"></i>
+                        </a>
                         <a href="{{ route('services.edit', [$service->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>

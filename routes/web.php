@@ -55,7 +55,7 @@ Route::group(
     Route::get("/logout",[\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
     Route::get("/security",[FrontendController::class,"security"])->name("security");
     Route::get("/documents",[FrontendController::class,"document"])->name("document");
-
+    Route::get("/privacy",[FrontendController::class,"privacy"])->name("privacy");
 
 
     Route::group(["middleware" => "admin"],function (){
@@ -82,6 +82,9 @@ Route::group(
         Route::resource('socials', App\Http\Controllers\SocialController::class);
         Route::post("admin-change",[\App\Http\Controllers\HomeController::class,"change"])->name("admin-change");
         Route::resource('schedules', App\Http\Controllers\ScheduleController::class);
+        Route::resource("service-teacher",\App\Http\Controllers\ServiceTeacherController::class);
+        Route::resource("/pupils",\App\Http\Controllers\PupilController::class);
+
     });
 
 
@@ -117,3 +120,5 @@ Route::resource('documents', App\Http\Controllers\DocumentController::class);
 
 
 Route::resource('workdays', App\Http\Controllers\WorkdayController::class);
+
+Route::resource('privicies', App\Http\Controllers\PrivicyController::class);

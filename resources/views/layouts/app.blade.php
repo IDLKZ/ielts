@@ -121,7 +121,7 @@
         filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token()])}}",
         filebrowserUploadMethod: 'form'
     } );
-    let classNames = ['description_ru','description_kz','description_en']
+    let classNames = ['description_ru','description_kz','description_en',"description"]
     for (let i = 0; i<classNames.length;i++){
         CKEDITOR.replace(classNames[i])
     }

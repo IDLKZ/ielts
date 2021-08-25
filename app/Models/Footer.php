@@ -35,7 +35,8 @@ class Footer extends Model
     public $fillable = [
         'language_id',
         'img',
-        'title'
+        'title',
+        'description'
     ];
 
     /**
