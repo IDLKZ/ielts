@@ -43,6 +43,12 @@ class FileUpload extends Model
     }
 
     public static function deleteFile($modelFile){
-        if(Storage::exists($modelFile)){Storage::delete($modelFile);}
+
+        try{
+            Storage::delete($modelFile);
+        }
+        catch (\Exception $e){
+
+        }
     }
 }
