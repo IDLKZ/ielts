@@ -51,7 +51,7 @@
     <script type="text/javascript">
         $(function () {
             $('.timepicker').datetimepicker({
-                format : 'HH:mm'
+                format : 'H:m d/m/Y'
             });
             $('.select2').select2();
         });
